@@ -1,8 +1,15 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-import {Segment, Grid, Table, Header, Icon, Label, Button} from 'semantic-ui-react'
+
+import {AddEvent} from '../'
+import {Segment, Grid, Table, Header, Icon, Label, Button, TransitionablePortal} from 'semantic-ui-react'
 
 class Schedules extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      show_add_form:false
+    }
+  }
 
   render () {
     return(
@@ -19,11 +26,9 @@ class Schedules extends React.Component {
                   <Table.Row>
                     <Table.HeaderCell colSpan='6'>Training Events</Table.HeaderCell>
                     <Table.HeaderCell>
-                        <Link to='/add-event'>
-                        <Button circular icon>
+                        <Button circular icon onClick={() => this.setState({show_add_form:!this.state.show_add_form})}>
                           <Icon name='add' color='red'/>
                         </Button>
-                        </Link>
                       </Table.HeaderCell>
                   </Table.Row>
                   <Table.Row>
@@ -74,6 +79,9 @@ class Schedules extends React.Component {
 
       </Grid.Column>
       </Grid>
+        <TransitionablePortal open={this.state.show_add_form} transition={{animation:'fly down', duration:2000}}>
+            <AddEvent/>
+        </TransitionablePortal>
     </Segment>
 )
   }

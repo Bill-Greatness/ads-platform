@@ -1,8 +1,25 @@
 import React from 'react'
 import placeImage from '../../media/place-image.jpg'
-import { Grid, Segment, Item, Divider} from 'semantic-ui-react'
+import PayForm from './forms/payForm'
+import { Grid, Segment, Item, Divider, TransitionablePortal} from 'semantic-ui-react'
+
+const USER_PROFILE = {
+  firstname:'James',
+  surname:'Powell',
+  employee_id:'GC00-o3Cd',
+  tin_number:'SoMeRandomNum',
+  department:'Training',
+  basic_salary:2000,
+  position:'Trainer'
+}
 
 class PayRoll extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      profile_clicked:false
+    }
+  }
   render () {
     return (
       <Segment style={{width:'100%', textAlign:'left'}} className='account-background'>
@@ -19,7 +36,7 @@ class PayRoll extends React.Component {
               <Item.Image size='tiny' src={placeImage} />
 
               <Item.Content>
-                <Item.Header as='a'>Bill Greatness</Item.Header>
+                <Item.Header as='a' onClick={()=> this.setState({profile_clicked:true})}>Bill Greatness</Item.Header>
                 <Item.Meta>  Team Lead </Item.Meta>
 
               </Item.Content>
@@ -167,8 +184,12 @@ class PayRoll extends React.Component {
 
           </Segment>
 
+          <TransitionablePortal open={this.state.profile_clicked} transition={{animation:'fly down', duration:2000}}>
+            <Segment raised style={{position:'fixed', top:'5%', left:'75%', zIndex:1000}} className='mid-segment'>
+                <PayForm user={USER_PROFILE} />
+            </Segment>
+          </TransitionablePortal>
       </Segment>
-
 
     );
 

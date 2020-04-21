@@ -32,9 +32,9 @@ body{
 
 .account-background{
   background-image: url('./media/account-background.png') !important;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat !important;
   background-position: center;
-  background-size: cover;
+  background-size: cover !important;
 }
 
 
