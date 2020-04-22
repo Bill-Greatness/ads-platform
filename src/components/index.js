@@ -1,22 +1,28 @@
-import Top from './layouts/TopBar'
-import Foot from './layouts/Footer'
-import Side from './layouts/SideBar'
-import Main from './sections/mainPane'
-import Registration from './sections/reGistrations'
-import PayRoll from './sections/payRoll'
-import DataBase from './sections/dataBase'
-import Message from './sections/messaGes'
-import Profile from './sections/accounts/showProfile'
-import EditProfile from './sections/accounts/profileEdit'
-import AddEvent from './sections/forms/eventAddForm'
-import Team from './sections/empLoyees'
-import Schedules from './sections/eventSchedules'
-import Assessment from './sections/assessMents'
-import Notification from './sections/notifications/notifiCations'
+import TopNavigation from './layouts/TopBar'
+import Footer from './layouts/fooTer'
+
+import SignUp from './profiles/signUP'
+import LoGin from './profiles/loginIn'
+
+import WelcomePage from './sections/homePage'
+import ElectronicDevices from './sections/electronicDevices'
+import AutoMobiles from './sections/autoMobiles'
+import Clothings from './sections/cloThings'
+import Pets from './sections/pEts'
+import Services from './sections/serVices'
+import Books from './sections/booKs'
 
 
-
-export  {Top, Foot, Side,Main,
-   Registration, PayRoll,Assessment, Notification,
-   DataBase, Message, Profile, EditProfile, Team,
-    Schedules, AddEvent}
+export {
+  TopNavigation,
+  Footer,
+  WelcomePage,
+  SignUp,
+  LoGin,
+  ElectronicDevices,
+  AutoMobiles,
+  Clothings,
+  Pets,
+  Services,
+  Books
+}

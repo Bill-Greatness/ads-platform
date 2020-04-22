@@ -2,8 +2,7 @@
 body{
   margin:0;
   padding:0;
-  background-image: linear-gradient(78deg,#1F3F49, #1C4E80 )  !important;
-  background-repeat: no-repeat;
+  background-color: #fff;
 }
 
 /*  Top button Classes*/

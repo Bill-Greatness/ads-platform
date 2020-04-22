@@ -1,138 +1,36 @@
-import React from 'react';
-import placeImage from '../../media/place-image.jpg'
-import { Notification } from '../'
+import React from 'react'
+import {Menu, Dropdown, Input} from 'semantic-ui-react'
 
-import {Menu, Header,
-  Button,
-   Icon,Divider,
- TransitionablePortal, Segment, Image, List, Label} from 'semantic-ui-react'
-
-class Top extends React.Component {
-  constructor(){
-    super()
-    this.state = {
-      show_notes:false,
-      profile_tab:false,
-      team_profile:false
-    }
-  }
-
-  toggleDataDisplay = event => {
-    this.setState({show_notes:!this.state.show_notes, profile_tab:false})
-  }
-
-
-  toggleProfileTab = event => {
-    this.setState({profile_tab:!this.state.profile_tab, show_notes:false})
-  }
-
-
-  change_view = name =>  event => {
-    this.setState({profile_tab:!this.state.profile_tab})
-    this.props.change_view(name)
-  }
+class TopNavigation extends React.Component {
   render () {
-        const {show_notes} = this.state
+        return(
+            <Menu fixed={'top'} pointing >
+              <Menu.Item name='Logician Ads' as='a' href='/'/>
 
-    return(
-      <>
-            <Menu pointing  fixed={'top'}  className='side-bar'>
-              <Menu.Item>
-                <Header as='h3' inverted icon='graduation' content='Logicians Inc.' textAlign={'center'}/>
-              </Menu.Item>
-                  <Menu.Menu position='right'>
-                    <Menu.Item>
-                      <Button icon circular inverted style={{border:'none'}} labelPosition='left'>
-                          <Icon name='clock' className='top-icon' size='large'/>
-                          <span id='current-time'></span>
-                        </Button>
+              <Menu.Menu position='right'>
+                <Menu.Item ><Input transparent
+                      placeholder='Search...'
+                      type='search'
+                    /></Menu.Item>
 
-                    </Menu.Item>
-                  <Menu.Item active={this.state.show_notes === true}>
-                  <Button icon circular style={{background:'none'}} onClick={this.toggleDataDisplay}>
-                      <Icon name='bell' className='top-icon' size='large'/>
-                      <Label floating color='red' circular size='small'>6</Label>
-                    </Button>
+                  <Dropdown item text='Categories' icon='globe' simple>
+                    <Dropdown.Menu>
+                      <Dropdown.Item as='a' href='/categories/electronic-gadgets'>Electronic Devices</Dropdown.Item>
+                      <Dropdown.Item as='a' href='/categories/auto-mobiles'>Car and AutoMobile</Dropdown.Item>
+                      <Dropdown.Item as='a' href='/categories/fashion-and-beauty'>Fashion and Beauty</Dropdown.Item>
+                      <Dropdown.Item as='a' href='/categories/animals-and-pets'>Pet and Animals</Dropdown.Item>
+                      <Dropdown.Item as='a' href='/categories/services'>Services</Dropdown.Item>
+                      <Dropdown.Item as='a' href='/categories/books-and-journals'>Books and Journals</Dropdown.Item>
+                      <Dropdown.Item as='a' href='/categories/event-and-trends'>Events and Trends</Dropdown.Item>
+                      <Dropdown.Item as='a' href='/categories/job-vacancies'>Job Alerts</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
 
-                      <TransitionablePortal open={show_notes} transition={{animation:'fly down', duration:1000}}>
-                        <Segment
-                          style={{
-                            left:'60%',
-                            position:'fixed',
-                            top:'5%',
-                            zIndex:1000,
-                          }}
-                          className='mid-segment'
-                          >
-                              <Notification />
-                        </Segment>
-
-                      </TransitionablePortal>
-                  </Menu.Item>
-
-                  <Menu.Item>
-                    <Button icon circular style={{background:'none'}} as='a' href='/team'>
-                        <Icon name='users' className='top-icon' size='large'/>
-                    </Button>
-
-                  </Menu.Item>
-
-                <Menu.Item>
-                  <Button icon circular style={{background:'none'}} onClick={this.toggleProfileTab}>
-                    <Image src={placeImage}  avatar/>
-                  </Button>
-
-                  <TransitionablePortal open={this.state.profile_tab} transition={{animation:'fly right', duration:2000}}>
-                      <Segment
-                        style={{
-                          left:'87%',
-                          width:170,
-
-                          position:'fixed',
-                          top:'5%',
-
-                          zIndex:1000
-                        }}
-                        className='mid-segment'
-
-                        >
-                          <List inverted>
-                              <List.Item as='a' href='/preview-profile'>
-                                <List.Icon name='user' />
-                                <List.Content>Profile</List.Content>
-                              </List.Item>
-
-                              <Divider />
-
-                              <List.Item as='a' href='/edit-profile'>
-                                <List.Icon name='write'  />
-                                <List.Content>Edit Profile</List.Content>
-                              </List.Item>
-
-                              <Divider/>
-
-                                <List.Item as='a' onClick={this.change_view('logout_off_profile')}>
-                                  <List.Icon name='logout' />
-                                  <List.Content>Logout</List.Content>
-                                </List.Item>
-
-                              <Divider />
-
-                              <List.Item as='a' onClick={this.change_view('delete_profile')}>
-                                <List.Icon name='delete' />
-                                <List.Content>Delete Account</List.Content>
-                              </List.Item>
-
-                          </List>
-                      </Segment>
-                  </TransitionablePortal>
-                  </Menu.Item>
-                  </Menu.Menu>
+                <Menu.Item name='Sign In' as='a' href='/sign-in'/>
+              </Menu.Menu>
             </Menu>
-
-      </>
-    )
+        )
   }
 }
 
-export default Top;
+export default TopNavigation;
