@@ -4,14 +4,16 @@ import {Menu, Dropdown, Input} from 'semantic-ui-react'
 class TopNavigation extends React.Component {
   render () {
         return(
-            <Menu fixed={'top'} pointing >
+            <Menu fixed={'top'} pointing borderless>
               <Menu.Item name='Logician Ads' as='a' href='/'/>
 
-              <Menu.Menu position='right'>
-                <Menu.Item ><Input transparent
+              <Menu.Menu position='right' className='hide-on-mobile'>
+                <Menu.Item>
+                <Input transparent
                       placeholder='Search...'
                       type='search'
-                    /></Menu.Item>
+                    />
+                </Menu.Item>
 
                   <Dropdown item text='Categories' icon='globe' simple>
                     <Dropdown.Menu>
@@ -25,8 +27,14 @@ class TopNavigation extends React.Component {
                       <Dropdown.Item as='a' href='/categories/job-vacancies'>Job Alerts</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
-
+                <Menu.Item icon='add' name='Post Product' as='a' href='/add-to-market'/>
                 <Menu.Item name='Sign In' as='a' href='/sign-in'/>
+              </Menu.Menu>
+              
+              <Menu.Menu position='right' className='hide-on-desktop'>
+              <Menu.Item
+              icon='bars'
+              />
               </Menu.Menu>
             </Menu>
         )

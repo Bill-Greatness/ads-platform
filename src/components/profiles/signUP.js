@@ -2,12 +2,34 @@ import React from 'react'
 import {Form, Button, Grid, Header} from 'semantic-ui-react'
 
 class SignUp extends React.Component {
-
+    constructor(){
+      super()
+      this.state = {
+        username:'',
+        password:'',
+        confirm_password:'',
+        phone:'',
+        mail:'',
+        id_type:'',
+        id_number:'',
+        image:null,
+        firstname:'',
+        surname:'',
+        gender:'',
+        region:'',
+        digital_addr:''
+      }
+    }
+    
+   handleUserAdd = event => {
+      event.preventDefault()
+      console.log(this.state)
+    }
   render () {
     const id_options = [
-      { text:"Voter's ID",key:'1',value:'Voters ID'},
-      { text:"NHIS ID",key:'2',value:'Health Insurance'},
-      { text:"National ID",key:'3',value:'National ID'}
+      { text:"Voter's ID",key:'1',value:'voters_id'},
+      { text:"NHIS ID",key:'2',value:'health_insurance'},
+      { text:"National ID",key:'3',value:'national_id'}
     ]
 
     const gender_options = [
@@ -29,21 +51,27 @@ class SignUp extends React.Component {
 
 
     ]
+    
+   
+    
     return(
       <Grid centered padded>
         <Grid.Column computer={8} mobile={14} tablet={8}>
         <Header icon='user' content='Become A Registered Member' subheader={'Connect, Earn and Learn'} />
 
-      <Form error>
+      <Form onSubmit={this.handleUserAdd}>
         <Form.Group widths='equal'>
           <Form.Input
           placeholder='First name'
+          onChange={(e) => this.setState({firstname:e.target.value})}
           label='Firstname'
           required
           />
 
           <Form.Input
           placeholder='Surname'
+          onChange={(e) => this.setState({surname:e.target.value})}
+
           label='Surname'
           required
           />
@@ -52,12 +80,15 @@ class SignUp extends React.Component {
         <Form.Group widths='equal'>
           <Form.Input
           type='date'
+          onChange={(e) => this.setState({date_of_birth:e.target.value})}
+
           label='Date Of Birth'
           required
           />
 
         <Form.Select
           options={gender_options}
+          onChange={(e) => this.setState({gender:e.target})}
           placeholder='Gender'
           label='Gender'
           required
@@ -68,6 +99,8 @@ class SignUp extends React.Component {
         <Form.Group widths='equal'>
           <Form.Input
           placeholder='name@somedomain.com'
+          onChange={(e) => this.setState({mail:e.target.value})}
+
           type='email'
           label='Email'
           required
@@ -75,7 +108,9 @@ class SignUp extends React.Component {
 
           <Form.Input
           type='tel'
-          placeholder='050 XXX -XXX - XXXX'
+          placeholder='XXX-XXX-XXXX'
+          onChange={(e) => this.setState({phone:e.target.value})}
+
           label='Phone'
           required
           />
@@ -83,7 +118,8 @@ class SignUp extends React.Component {
 
       <Form.Group widths='equal'>
         <Form.Select
-          options={region_options}
+        options={region_options}
+        onChange={(e)=>this.setState({region:e.target})}
         label='Region'
         placeholder='Region'
         required
@@ -91,6 +127,7 @@ class SignUp extends React.Component {
 
       <Form.Input
         placeholder='Digital Address'
+        onChange={(e)=>this.setState({digital_addr:e.target.value})}
         label='Digital Address'
         required
         />
@@ -99,6 +136,7 @@ class SignUp extends React.Component {
       <Form.Group widths='equal'>
         <Form.Select
           options={id_options}
+          onSelect={(e) => this.setState({id_type:e.target.value})}
           placeholder='Choose ID'
           label='Choose ID'
           required
@@ -106,6 +144,7 @@ class SignUp extends React.Component {
 
         <Form.Input
             placeholder='ID Number'
+            onChange={(e)=> this.setState({id_number:e.target.value})}
             label='ID Number'
             required
             />
@@ -114,6 +153,8 @@ class SignUp extends React.Component {
         <Form.Group widths='equal'>
           <Form.Input
           minLength={8}
+          onChange={(e) => this.setState({password:e.target.value})}
+
           type='password'
           placeholder='Password'
           label='Password'
@@ -122,6 +163,8 @@ class SignUp extends React.Component {
 
           <Form.Input
           type='password'
+          onChange={(e) => this.setState({confirm_password:e.target.value})}
+
           minLength={8}
           placeholder='Password'
           label='Confirm Password'

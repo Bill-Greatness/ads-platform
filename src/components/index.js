@@ -12,6 +12,12 @@ import Pets from './sections/pEts'
 import Services from './sections/serVices'
 import Books from './sections/booKs'
 
+import AddPost from './additions/postAdd'
+import AddDevice from './additions/deviceAdd'
+import AddProperty from './additions/propertyAdd'
+import AddFashion from './additions/fashionAdd'
+import AddPet from './additions/petAdd'
+
 
 export {
   TopNavigation,
@@ -24,5 +30,10 @@ export {
   Clothings,
   Pets,
   Services,
-  Books
+  Books,
+  AddPost,
+  AddDevice,
+  AddProperty,
+  AddFashion,
+  AddPet
 }

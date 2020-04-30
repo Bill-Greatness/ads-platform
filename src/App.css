@@ -5,74 +5,16 @@ body{
   background-color: #fff;
 }
 
-/*  Top button Classes*/
-.top-bar{
-  z-index: 1000;
-  float: right;
-  position: fixed;
-  width: inherit;
-  margin-left: 10px;
-
+.hide-on-desktop{
+  display: none !important;
 }
 
-
-
-.side-bar{
-  background-image: linear-gradient(78deg,#1F3F49, #1C4E80 )  !important;
-}
-
-.side-icon{
-  color:#0091D5 !important;
-}
-
-.top-icon{
-  color: #0091D5 !important;
-}
-
-.account-background{
-  background-image: url('./media/account-background.png') !important;
-  background-repeat: no-repeat !important;
-  background-position: center;
-  background-size: cover !important;
-}
-
-
-.account-top{
-  background-color: rgba(77, 120, 150, 0.6) !important;
-  color:white !important;
-}
-
-
-.top-btn{
-  background: none !important;
-}
-.top-btn:hover{
-  background: rgba(255, 0, 50, 0.5) !important;
-}
-.inp{
-  border-radius: 30px !important;
-}
-
-
-
-.main{
-  text-align: center;
-  min-height: 100%;
-  padding-top: 49px !important;
-}
-
-.dashtop-segment{
-  height: 180px;
-  background-color: rgba(77, 120, 150, 0.6) !important;
-}
-
-.dashmid-segment{
-  height: 250px;
-  background-color: rgba(77, 120, 150, 0.6) !important;
-}
-
-
-.mid-segment{
-    background-image: linear-gradient(78deg,#1F3F49, #1C4E80 )  !important;
-
+@media screen and (max-width:550px){
+  .hide-on-mobile{
+    display:none !important;
+  }
+  
+  .hide-on-desktop{
+    display: flex !important;
+  }
 }

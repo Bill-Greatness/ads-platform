@@ -2,8 +2,13 @@ import React from 'react';
 import {Grid} from 'semantic-ui-react'
 import {BrowserRouter as Router ,Switch,  Route } from 'react-router-dom'
 import {TopNavigation,AutoMobiles,Services,
-   Footer, WelcomePage, SignUp,
-    LoGin,ElectronicDevices, Clothings, Pets, Books} from './components'
+   Footer, WelcomePage, SignUp,AddPost,
+    LoGin,ElectronicDevices, Clothings,
+    Pets, Books, AddDevice, AddProperty, AddFashion,AddPet,
+    } from './components'
+import {PreviewAutoMobile,PreviewPet,
+PreviewDevice, PreviewFashion,
+PreviewService} from './components/previews'
 import './App.css'
 
 
@@ -36,6 +41,18 @@ class App extends React.Component {
                   <Route path='/categories/animals-and-pets' component={Pets} />
                   <Route path='/categories/services' component={Services} />
                   <Route path='/categories/books-and-journals' component={Books} />
+                  
+                  <Route path='/automobiles/1' component={PreviewAutoMobile} />
+                  <Route path='/electronic-devices/1' component={PreviewDevice} />
+                  <Route path='/fashion-preview/1' component={PreviewFashion} />
+                  <Route path='/service-preview/1' component={PreviewService} />
+                  <Route path='/pet-preview/1' component={PreviewPet} />
+                  
+                  <Route path='/add-to-market' component={AddPost} />
+                  <Route path='/add-electronic-gadgets' component={AddDevice} />
+                  <Route path='/add-property' component={AddProperty} />
+                  <Route path='/add-fashion' component={AddFashion} />
+                  <Route path='/add-pets-or-animals' component={AddPet} />
               </Switch>
           </Router>
           </Grid.Column>

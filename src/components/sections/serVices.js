@@ -18,7 +18,7 @@ class Services extends React.Component {
                       <Item>
                           <Item.Image src={services} size='tiny' />
                           <Item.Content>
-                              <Item.Header as='a'>Claudia's Glam</Item.Header>
+                              <Item.Header as='a' href='/service-preview/1'>Claudia's Glam</Item.Header>
                               <Item.Meta>Creative MakeUp Artist</Item.Meta>
                               <Item.Description>There is a man in the mirror and he i
                               s going to make a change. is a man in the mirror and h</Item.Description>
