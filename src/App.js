@@ -5,7 +5,8 @@ import {BrowserRouter as Router ,Switch,  Route } from 'react-router-dom'
 import {AutoMobiles,Services,
    Footer, WelcomePage, SignUp,AddPost,
     LoGin,ElectronicDevices, Clothings,
-    Pets, Books, AddDevice, AddProperty, AddFashion,AddPet,AddBook,
+    Pets, Books, AddDevice, AddProperty,
+    AddFashion,AddPet,AddBook,AddService,AddVacancy
     } from './components'
 import {PreviewAutoMobile,PreviewPet,
 PreviewDevice, PreviewFashion,
@@ -53,6 +54,8 @@ class App extends React.Component {
                   <Route path='/add-fashion' component={AddFashion} />
                   <Route path='/add-pets-or-animals' component={AddPet} />
                   <Route path='/add-books-or-journals' component={AddBook} />
+                  <Route path='/add-service' component={AddService} />
+                  <Route path='/add-vacancy' component={AddVacancy} />
               </Switch>
           </Router>
           </Grid.Column>

@@ -60,4 +60,24 @@ var schema = graphql.buildSchema({
         price:String!,
         description:String!
     }
+    
+    type Book{
+        book_title:String!,
+        book_price:String!,
+        book_genre:String!,
+        date_publish:String!,
+        name_of_author:String!,
+        number_available:Int!,
+        book_description:String!,
+        posted_by:User!
+    }
+    
+    type Service{
+        service_name:String!,
+        serive_location:String!,
+        service_tag:String!,
+        service_duration:String!,
+        service_price:String!,
+        service_description:String!
+    }
 })

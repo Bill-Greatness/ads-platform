@@ -27,7 +27,6 @@ class AddCategories extends React.Component {
                           <Image  src={electronics} size='small'/>
                     </Header.Content>
                     <Header.Subheader>Electronic Devices</Header.Subheader>
-                    <Header.Subheader>(25,000)</Header.Subheader>
 
                   </Header>
                 </Card.Content>

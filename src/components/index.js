@@ -18,6 +18,8 @@ import AddProperty from './additions/propertyAdd'
 import AddFashion from './additions/fashionAdd'
 import AddPet from './additions/petAdd'
 import AddBook from './additions/bookAdd'
+import AddService from './additions/serviceAdd'
+import AddVacancy from './additions/vacancyAdd'
 
 import DeleteProduct from './_manipulate/productDelete'
 
@@ -40,5 +42,7 @@ export {
   AddFashion,
   AddPet,
   AddBook,
+  AddService,
+  AddVacancy,
   DeleteProduct
 }

@@ -134,7 +134,8 @@ class  AddPost extends React.Component {
                     
                     
                     <Grid.Column computer={4} tablet={4} mobile={8}>
-                        <Card as='a' onClick={()=>{}} raised>
+                    <Link to={{pathname:'/add-service', state:{is_authenticated:this.props.location.state.is_authenticated}}}>
+                        <Card  onClick={()=>{}} raised>
                             <Card.Content>
                             <Card.Header>Services</Card.Header>
                             <List divided>
@@ -149,11 +150,14 @@ class  AddPost extends React.Component {
                             </List>
                             </Card.Content>
                         </Card>
+                        </Link>
                     </Grid.Column>
                     
                     
                     <Grid.Column computer={4} tablet={4} mobile={8}>
-                        <Card as='a' onClick={()=>{}} raised>
+                     <Link to={{pathname:'/add-vacancy', state:{is_authenticated:this.props.location.state.is_authenticated}}}>
+
+                        <Card  onClick={()=>{}} raised>
                             <Card.Content>
                             <Card.Header>Job Vacancies</Card.Header>
                             <List divided>
@@ -167,7 +171,9 @@ class  AddPost extends React.Component {
 
                             </List>
                             </Card.Content>
+                          
                         </Card>
+                          </Link>
                     </Grid.Column>
                     
                     
