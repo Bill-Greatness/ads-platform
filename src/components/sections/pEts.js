@@ -2,10 +2,14 @@ import React from 'react'
 import {Grid, Card, Label, Image} from 'semantic-ui-react'
 import pets from '../../media/animals-and-pets.png'
 import Title from '../_components/TopHead'
+import {TopNavigation} from '../'
 
 class Pets extends React.Component {
   render () {
       return(
+        <>
+        <TopNavigation is_authenticated={this.props.location.state.is_authenticated}/>
+
         <Grid padded>
             <Title icon='blind' content='Animals and Pets' subheader='Get your next pet friend!'/>
             <Grid>
@@ -22,6 +26,7 @@ class Pets extends React.Component {
               ))}
             </Grid>
         </Grid>
+        </>
       )
   }
 }

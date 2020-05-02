@@ -1,5 +1,5 @@
 import React from 'react'
-import {Grid, Segment, Divider, Icon} from 'semantic-ui-react'
+import {Grid, Segment, Divider, Icon, Table} from 'semantic-ui-react'
 import Title from '../_components/TopHead'
 import PropTypes from 'prop-types'
 
@@ -26,10 +26,42 @@ class   PreviewPet extends React.Component{
                             </Grid.Column>
                             
                             <Grid.Column computer={8} tablet={8} mobile={16}>
-                            <Segment placeholder>
-                                <h3> Pet Descriptions Here </h3>
-                                
-                            </Segment>
+                            
+                                 <Table unstackable>
+                                    <Table.Header>
+                                        <Table.Row>
+                                            <Table.HeaderCell/>
+                                            <Table.HeaderCell/>
+                                        </Table.Row>
+                                    </Table.Header>
+                                    <Table.Body>
+                                    <Table.Row>
+                                        <Table.Cell>Side </Table.Cell>
+                                         <Table.Cell>Side</Table.Cell>
+
+                                    </Table.Row>
+                                    
+                                    <Table.Row>
+                                        <Table.Cell>Side </Table.Cell>
+                                         <Table.Cell>Side</Table.Cell>
+
+                                    </Table.Row>
+                                    
+                                    <Table.Row>
+                                        <Table.Cell>Side </Table.Cell>
+                                         <Table.Cell>Side</Table.Cell>
+
+                                    </Table.Row>
+                                    
+                                    <Table.Row>
+                                        <Table.Cell colSpan='2'>Side </Table.Cell>
+                                        
+
+                                    </Table.Row>
+                                    
+                                    </Table.Body>
+                                </Table>
+
                             </Grid.Column>
                         </Grid.Row>
                  <Divider vertical clearing children={<Icon name='arrow right' />} />

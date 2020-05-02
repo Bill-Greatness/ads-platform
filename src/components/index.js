@@ -17,6 +17,9 @@ import AddDevice from './additions/deviceAdd'
 import AddProperty from './additions/propertyAdd'
 import AddFashion from './additions/fashionAdd'
 import AddPet from './additions/petAdd'
+import AddBook from './additions/bookAdd'
+
+import DeleteProduct from './_manipulate/productDelete'
 
 
 export {
@@ -35,5 +38,7 @@ export {
   AddDevice,
   AddProperty,
   AddFashion,
-  AddPet
+  AddPet,
+  AddBook,
+  DeleteProduct
 }

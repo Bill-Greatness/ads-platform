@@ -13,6 +13,7 @@ class LoGin extends React.Component {
   handleUserLogin = event => {
     event.preventDefault()
     console.log(this.state)
+    this.props.history.push({pathname:'/', state:{is_authenticated:true}})
   }
   render () {
       return(
@@ -20,7 +21,7 @@ class LoGin extends React.Component {
       <Grid.Column computer={8} mobile={14} tablet={8}>
       <Header icon='user' content='Welcome Back' subheader='Login to App Name' />
       <br/>
-      <br/>
+
        <Form onSubmit={this.handleUserLogin}>
           <Form.Input
           placholder='username'

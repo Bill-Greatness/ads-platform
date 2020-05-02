@@ -7,7 +7,7 @@ class Footer extends React.Component {
         <Menu fixed={'bottom'}>
         <Menu.Item name='copyRight'/>
         <Menu.Menu position='right'>
-          <Menu.Item name='Logicians Enterprice Ghana'/>
+          <Menu.Item name='Logicians Enterprise Ghana'/>
         </Menu.Menu>
         </Menu>
       );

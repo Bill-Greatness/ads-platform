@@ -2,11 +2,15 @@ import React from 'react'
 import {Grid, Item, Segment} from 'semantic-ui-react'
 import Title from '../_components/TopHead'
 import services from '../../media/services.png'
+import {TopNavigation} from '../'
 
 
 class Services extends React.Component {
   render () {
       return(
+        <>
+                <TopNavigation is_authenticated={this.props.location.state.is_authenticated}/>
+
         <Grid padded>
               <Title icon='globe' content='Great Services are Available' subheader='Get your queries resolved' />
 
@@ -30,6 +34,7 @@ class Services extends React.Component {
               ))}
             </Grid>
         </Grid>
+        </>
       )
   }
 }

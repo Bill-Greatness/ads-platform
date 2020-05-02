@@ -1,13 +1,22 @@
 import React from 'react';
 import 'semantic-ui-css/semantic.min.css'
+import ApolloClient from 'apollo-boost'
+import {ApolloProvider} from '@apollo/react-hooks'
 import './App.css'
 import ReactDOM from 'react-dom';
 import App from './App';
 
 import * as serviceWorker from './serviceWorker';
 
+const client = new ApolloClient({
+  uri:'/some/random/end-point'
+})
+
 ReactDOM.render(
-    <App />,
+  <ApolloProvider client={client}>
+    <App />
+    </ApolloProvider>,
+  
   document.getElementById('root')
 );
 

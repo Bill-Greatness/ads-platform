@@ -1,6 +1,8 @@
 import React from 'react'
 import {Grid, Card, List} from 'semantic-ui-react'
 import Title from '../_components/TopHead'
+import {Link} from 'react-router-dom'
+import {TopNavigation} from '../'
 
 class  AddPost extends React.Component {
     constructor(){
@@ -13,6 +15,8 @@ class  AddPost extends React.Component {
     render(){
 
         return(
+            <>
+            <TopNavigation is_authenticated={this.props.location.state.is_authenticated} />
             <Grid padded>
                 <Title content='Choose Item Type to Add to Market' icon='add' subheader='Reach Out to Customers the Easy Way' />
                 <Grid.Column computer={16} mobile={16} tablet={16}>
@@ -20,7 +24,8 @@ class  AddPost extends React.Component {
                 
         
                     <Grid.Column computer={4} tablet={4} mobile={16}>
-                        <Card as='a' onClick={()=>{}} raised href='/add-electronic-gadgets'>
+                    <Link to={{pathname:'/add-electronic-gadgets', state:{is_authenticated:this.props.location.state.is_authenticated}}}> 
+                        <Card  onClick={()=>{}} raised >
                             <Card.Content>
                              <Card.Header> Electronic Gadgets</Card.Header>
 
@@ -36,6 +41,7 @@ class  AddPost extends React.Component {
                             </List>
                             </Card.Content>
                         </Card>
+                        </Link>
                     </Grid.Column>
                     
                     
@@ -61,7 +67,9 @@ class  AddPost extends React.Component {
                     
                     
                     <Grid.Column computer={4} tablet={4} mobile={8}>
-                        <Card as='a' onClick={()=>{}} raised href='/add-fashion'>
+                     <Link to={{pathname:'/add-fashion', state:{is_authenticated:this.props.location.state.is_authenticated}}}> 
+
+                        <Card onClick={()=>{}} raised>
                             <Card.Content>
                             <Card.Header>Fashion and Beauty</Card.Header>
                             <List divided>
@@ -76,12 +84,15 @@ class  AddPost extends React.Component {
                             </List>
                             </Card.Content>
                         </Card>
+                        </Link>
                     </Grid.Column>
                     
                     
                     
                     <Grid.Column computer={4} tablet={4} mobile={8}>
-                        <Card as='a' onClick={()=>{}} raised href='/add-pets-or-animals'>
+                    <Link to={{pathname:'/add-pets-or-animals', state:{is_authenticated:this.props.location.state.is_authenticated}}}> 
+
+                        <Card  onClick={()=>{}} raised>
                             <Card.Content>
                             <Card.Header>Animals & Pets</Card.Header>
                             <List divided>
@@ -96,10 +107,12 @@ class  AddPost extends React.Component {
                             </List>
                             </Card.Content>
                         </Card>
+                        </Link>
                     </Grid.Column>
                     
                     
                     <Grid.Column computer={4} tablet={4} mobile={8}>
+                     <Link to={{pathname:'/add-books-or-journals', state:{is_authenticated:this.props.location.state.is_authenticated}}}> 
                          <Card as='a' onClick={()=>{}} raised>
                             <Card.Content>
                             <Card.Header>Books</Card.Header>
@@ -115,6 +128,7 @@ class  AddPost extends React.Component {
                             </List>
                             </Card.Content>
                         </Card>
+                        </Link>
                     </Grid.Column>
                     
                     
@@ -180,6 +194,7 @@ class  AddPost extends React.Component {
                     </Grid>
                 </Grid.Column>
             </Grid>
+            </>
         )
     }
 }

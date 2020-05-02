@@ -1,10 +1,11 @@
 import React from 'react';
 import {Grid} from 'semantic-ui-react'
+
 import {BrowserRouter as Router ,Switch,  Route } from 'react-router-dom'
-import {TopNavigation,AutoMobiles,Services,
+import {AutoMobiles,Services,
    Footer, WelcomePage, SignUp,AddPost,
     LoGin,ElectronicDevices, Clothings,
-    Pets, Books, AddDevice, AddProperty, AddFashion,AddPet,
+    Pets, Books, AddDevice, AddProperty, AddFashion,AddPet,AddBook,
     } from './components'
 import {PreviewAutoMobile,PreviewPet,
 PreviewDevice, PreviewFashion,
@@ -23,13 +24,11 @@ class App extends React.Component {
   }
 
   render () {
-
+        
       return(
-
         <>
-          <TopNavigation />
           <Grid centered>
-          <Grid.Column computer={16}>
+          <Grid.Column computer={16} mobile={16} tablet={16}>
           <Router>
               <Switch>
                   <Route path='/' exact component={WelcomePage} />
@@ -53,12 +52,15 @@ class App extends React.Component {
                   <Route path='/add-property' component={AddProperty} />
                   <Route path='/add-fashion' component={AddFashion} />
                   <Route path='/add-pets-or-animals' component={AddPet} />
+                  <Route path='/add-books-or-journals' component={AddBook} />
               </Switch>
           </Router>
           </Grid.Column>
           </Grid>
             <Footer/>
         </>
+
+      
 
       )
   }

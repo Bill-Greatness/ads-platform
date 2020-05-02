@@ -6,46 +6,58 @@ import pets from '../../media/animals-and-pets.png'
 import electronics from '../../media/phones-and-computers.png'
 import services from '../../media/services.png'
 import books from '../../media/books.png'
+import {Link} from 'react-router-dom'
 import events from '../../media/incoming-events.png'
 import {Grid, Card,Divider, Image, Header} from 'semantic-ui-react'
 
 class AddCategories extends React.Component {
   render () {
+    
     return (
       <>
       <Divider horizontal > Browse Categories </Divider>
       <Grid  container>
 
             <Grid.Column computer={4} mobile={8} tablet={4}>
-              <Card raised as='a' href='/categories/electronic-gadgets'>
+            <Link to={{pathname:'/categories/electronic-gadgets', state:{is_authenticated: this.props.is_authenticated}}}>
+              <Card raised onClick={() => {}}>
                 <Card.Content>
                   <Header as='h2' textAlign='center' icon>
                     <Header.Content>
                           <Image  src={electronics} size='small'/>
                     </Header.Content>
                     <Header.Subheader>Electronic Devices</Header.Subheader>
+                    <Header.Subheader>(25,000)</Header.Subheader>
+
                   </Header>
                 </Card.Content>
-
+              
               </Card>
+              </Link>
             </Grid.Column>
 
             <Grid.Column computer={4} mobile={8} tablet={4}>
-              <Card raised onClick={()=>{}} as='a' href='/categories/auto-mobiles'>
+            
+           <Link to={{pathname:'/categories/auto-mobiles', state:{is_authenticated: this.props.is_authenticated}}}>
+
+              <Card raised onClick={()=>{}}>
                 <Card.Content>
                   <Header as='h2' textAlign='center' icon>
                     <Header.Content>
                           <Image  src={automobile} size='small'/>
                     </Header.Content>
-                    <Header.Subheader>Cars and Automobiles</Header.Subheader>
+                    <Header.Subheader>Cars and Real Estates</Header.Subheader>
                   </Header>
                 </Card.Content>
 
               </Card>
+              </Link>
             </Grid.Column>
 
             <Grid.Column computer={4} mobile={8} tablet={4}>
-              <Card raised onClick={()=>{}} as='a' href='/categories/fashion-and-beauty'>
+          <Link to={{pathname:'/categories/fashion-and-beauty', state:{is_authenticated: this.props.is_authenticated}}}>
+
+              <Card raised onClick={()=>{}}>
                 <Card.Content>
                   <Header as='h2' textAlign='center' icon>
                     <Header.Content>
@@ -56,11 +68,14 @@ class AddCategories extends React.Component {
                 </Card.Content>
 
               </Card>
+              </Link>
             </Grid.Column>
 
 
             <Grid.Column computer={4} mobile={8} tablet={4}>
-              <Card raised onClick={()=>{}} as='a' href='/categories/animals-and-pets'>
+              <Link to={{pathname:'/categories/animals-and-pets', state:{is_authenticated: this.props.is_authenticated}}}>
+
+              <Card raised onClick={()=>{}}>
                 <Card.Content>
                   <Header as='h2' textAlign='center' icon>
                     <Header.Content>
@@ -71,13 +86,16 @@ class AddCategories extends React.Component {
                 </Card.Content>
 
               </Card>
+              </Link>
             </Grid.Column>
 
       </Grid>
 
       <Grid container>
 
-            <Grid.Column computer={4} mobile={8} tablet={4} as='a' href='/categories/services'>
+            <Grid.Column computer={4} mobile={8} tablet={4}>
+            <Link to={{pathname:'/categories/services', state:{is_authenticated: this.props.is_authenticated}}}>
+
               <Card raised onClick={()=>{}}>
                 <Card.Content>
                   <Header as='h2' textAlign='center' icon>
@@ -89,10 +107,13 @@ class AddCategories extends React.Component {
                 </Card.Content>
 
               </Card>
+              </Link>
             </Grid.Column>
 
             <Grid.Column computer={4} mobile={8} tablet={4}>
-              <Card raised onClick={()=>{}} as='a' href='/categories/books-and-journals'>
+            <Link to={{pathname:'/categories/books-and-journals', state:{is_authenticated: this.props.is_authenticated}}}>
+
+              <Card raised onClick={()=>{}}>
                 <Card.Content>
                   <Header as='h2' textAlign='center' icon>
                     <Header.Content>
@@ -103,6 +124,7 @@ class AddCategories extends React.Component {
                 </Card.Content>
 
               </Card>
+              </Link>
             </Grid.Column>
 
             <Grid.Column computer={4} mobile={8} tablet={4}>
@@ -121,6 +143,66 @@ class AddCategories extends React.Component {
               </Card>
             </Grid.Column>
 
+            <Grid.Column computer={4} mobile={8} tablet={4}>
+              <Card raised onClick={()=>{}}>
+                <Card.Content>
+                  <Header as='h2' textAlign='center' icon>
+                    <Header.Content>
+                          <Image  src={freelancing} size='small'/>
+                    </Header.Content>
+                    <Header.Subheader>Job Alerts</Header.Subheader>
+                  </Header>
+                </Card.Content>
+
+              </Card>
+            </Grid.Column>
+            
+            
+            <Grid.Column computer={4} mobile={8} tablet={4}>
+              <Card raised onClick={()=>{}}>
+                <Card.Content>
+                  <Header as='h2' textAlign='center' icon>
+                    <Header.Content>
+                          <Image  src={freelancing} size='small'/>
+                    </Header.Content>
+                    <Header.Subheader>Job Alerts</Header.Subheader>
+                  </Header>
+                </Card.Content>
+
+              </Card>
+            </Grid.Column>
+            
+            
+            <Grid.Column computer={4} mobile={8} tablet={4}>
+              <Card raised onClick={()=>{}}>
+                <Card.Content>
+                  <Header as='h2' textAlign='center' icon>
+                    <Header.Content>
+                          <Image  src={freelancing} size='small'/>
+                    </Header.Content>
+                    <Header.Subheader>Job Alerts</Header.Subheader>
+                  </Header>
+                </Card.Content>
+
+              </Card>
+            </Grid.Column>
+            
+            
+            <Grid.Column computer={4} mobile={8} tablet={4}>
+              <Card raised onClick={()=>{}}>
+                <Card.Content>
+                  <Header as='h2' textAlign='center' icon>
+                    <Header.Content>
+                          <Image  src={freelancing} size='small'/>
+                    </Header.Content>
+                    <Header.Subheader>Job Alerts</Header.Subheader>
+                  </Header>
+                </Card.Content>
+
+              </Card>
+            </Grid.Column>
+            
+            
             <Grid.Column computer={4} mobile={8} tablet={4}>
               <Card raised onClick={()=>{}}>
                 <Card.Content>

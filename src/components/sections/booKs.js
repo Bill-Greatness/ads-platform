@@ -2,11 +2,17 @@ import React from 'react'
 import {Grid, Reveal, Image, Container, Card} from 'semantic-ui-react'
 import Title from '../_components/TopHead'
 import placeholder from '../../media/book-placeholder.jpeg'
+import {TopNavigation} from '../'
+
 
 class Books extends React.Component {
   render () {
       return(
-          <Grid padded>
+        <>
+                  <TopNavigation />
+
+          <Grid padded>        
+        
               <Title icon='book' content='Explore By Reading' subheader='Travel Through Peoples Experiences'/>
               <Grid padded>
                 <Grid.Column computer={13} mobile={16}>
@@ -35,6 +41,7 @@ class Books extends React.Component {
                 </Grid.Column>
               </Grid>
           </Grid>
+          </>
       )
   }
 }

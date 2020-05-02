@@ -2,10 +2,13 @@ import React from 'react'
 import {Grid, Item, Segment, Label, Divider} from 'semantic-ui-react'
 import automobile from '../../media/auto-mobile.png'
 import Title from '../_components/TopHead'
+import {TopNavigation} from '../'
 
 class AutoMobiles extends React.Component {
   render () {
       return(
+        <>
+        <TopNavigation is_authenticated={this.props.location.state.is_authenticated}/>
         <Grid padded>
 
               <Title icon='car' content='Cars and Automobiles' subheader='Arsenal for Vehicles' />
@@ -77,6 +80,7 @@ class AutoMobiles extends React.Component {
               </Grid>
 
         </Grid>
+        </>
       )
   }
 }
