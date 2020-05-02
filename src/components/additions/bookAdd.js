@@ -30,8 +30,12 @@ class AddBook extends React.Component{
             <Grid padded>
             <Title content='Publish Book on Market' subheader='Explore by Reading' icon='book' />
             
-            <Grid.Column computer={12} tablet={12} mobile={16}>
+           
+            <Grid.Column computer={16} tablet={16} mobile={16}>
+                 <Grid centered>
+                 <Grid.Column computer={10} tablet={10} mobile={14}>
                     <Form>
+                    <Form.Group widths='equal'>
                         <Form.Input
                         onChange={(e) => this.setState({book_title:e.target.value})}
                         required
@@ -45,13 +49,10 @@ class AddBook extends React.Component{
                         placeholder='Price'
                         label='Price'
                         />
+                        </Form.Group>
                         
-                        <Form.Input
-                         onChange={(e) => this.setState({date_publish:e.target.value})}
-                         label='Date Publish'
-                         type='date'
-                         />
-                         
+                        <Form.Group widths='equal'>
+                        
                          <Form.Input
                          label='Name of Author'
                          onChange={(e) => this.setState({name_of_author:e.target.value})}
@@ -59,6 +60,17 @@ class AddBook extends React.Component{
                          placeholder='Author'
                          />
                          
+                         
+                        <Form.Input
+                         onChange={(e) => this.setState({date_publish:e.target.value})}
+                         label='Date Publish'
+                         type='date'
+                         />
+                         
+                        
+                         </Form.Group>
+                         
+                         <Form.Group widths='equal'>
                          <Form.Input
                          type='number'
                          onChange={(e) => this.setState({number_available:e.target.value})}
@@ -74,6 +86,7 @@ class AddBook extends React.Component{
                          placeholder='Select Genre'
                          options={GENRES}
                          />
+                         </Form.Group>
                          
                          <Form.TextArea
                          required
@@ -85,6 +98,8 @@ class AddBook extends React.Component{
                           <Button type='submit' circular> Advertise</Button>
                          
                     </Form>
+                    </Grid.Column>
+            </Grid>
             </Grid.Column>
             
   
