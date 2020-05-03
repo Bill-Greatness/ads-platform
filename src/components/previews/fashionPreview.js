@@ -1,6 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+//import PropTypes from 'prop-types'
 import {Grid, Segment, Divider, Icon, Table} from 'semantic-ui-react'
+import {TopNavigation} from '../'
 import Title from '../_components/TopHead'
 
 class   PreviewFashion extends React.Component{
@@ -13,6 +14,12 @@ class   PreviewFashion extends React.Component{
     
     render(){
         return(
+            <>
+            {this.props.location.state === undefined ?
+            this.props.history.push({pathname:'/categories/fashion-and-beauty', state:{is_authenticated:false}}) :
+            
+            <>
+            <TopNavigation is_authenticated={this.props.location.state.is_authenticated} />
             <Grid padded>
                 <Title icon='tv' content='Gadget Name' subheader='Some Sub Heading'/>
                 <Grid.Column computer={16} mobile={16} tablet={16}>
@@ -115,6 +122,8 @@ class   PreviewFashion extends React.Component{
                     </Grid>
                 </Grid.Column>
             </Grid>
+            </>}
+            </>
         )
 }
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import {Grid, Item, Segment} from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
 import Title from '../_components/TopHead'
 import services from '../../media/services.png'
 
@@ -11,7 +12,7 @@ class Services extends React.Component {
       return(
         <>
                
-       <TopNavigation is_authenticated={this.props.location.state.is_authenticated}/>
+       <TopNavigation is_authenticated={this.props.location.state !== undefined ? this.props.location.state.is_authenticated: false}/>
           
         <Grid padded>
               <Title icon='globe' content='Great Services are Available' subheader='Get your queries resolved' />
@@ -24,10 +25,12 @@ class Services extends React.Component {
                       <Item>
                           <Item.Image src={services} size='tiny' />
                           <Item.Content>
-                              <Item.Header as='a' href='/service-preview/1'>Claudia's Glam</Item.Header>
+                          <Link to={{pathname:'/service-preview/1', state:{is_authenticated: this.props.location.state !== undefined ? this.props.location.state.is_authenticated : false}}}> 
+                              <Item.Header as='h3'>Claudia's Glam</Item.Header>
+                              </Link>
                               <Item.Meta>Creative MakeUp Artist</Item.Meta>
                               <Item.Description>There is a man in the mirror and he i
-                              s going to make a change. is a man in the mirror and h</Item.Description>
+                              s going to make a change</Item.Description>
                           </Item.Content>
                       </Item>
                     </Item.Group>

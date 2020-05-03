@@ -1,7 +1,8 @@
 import React from 'react'
 import Title from '../_components/TopHead'
 import {Grid, Segment, Icon , Divider} from 'semantic-ui-react'
-import PropTypes from 'prop-types'
+//import PropTypes from 'prop-types'
+import {TopNavigation} from '../'
 
 class PreviewService extends React.Component{
     constructor(){
@@ -12,6 +13,11 @@ class PreviewService extends React.Component{
     }
     render(){
         return(
+            <>
+            {this.props.location.state === undefined ?
+            this.props.history.push({pathname:'/categories/services', state:{is_authenticated:false}}):
+            <>
+            <TopNavigation is_authenticated={this.props.location.state.is_authenticated} />
             <Grid padded>
                 <Title content='Service Details' icon='cart' subheader='some service Details'/>
                 <Grid.Column computer={16} mobile={16} tablet={16}>
@@ -47,6 +53,8 @@ class PreviewService extends React.Component{
                         </Grid>
                      </Grid.Column>
             </Grid>
+            </>}
+            </>
         )
     }
 }

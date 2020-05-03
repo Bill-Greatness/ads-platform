@@ -1,6 +1,7 @@
 import React from 'react'
 import {Grid, Segment, Divider, Icon, Table} from 'semantic-ui-react'
 import Title from '../_components/TopHead'
+import {TopNavigation} from '../'
 import PropTypes from 'prop-types'
 
 class   PreviewPet extends React.Component{
@@ -11,8 +12,14 @@ class   PreviewPet extends React.Component{
             }
         }
     render(){
-        console.log(Divider)
+        
         return(
+            <>
+            {this.props.location.state === undefined ?
+            this.props.history.push({pathname:'/categories/pets-and-animals', state:{is_authenticated:false}}) :
+            <>
+            <TopNavigation is_authenticated={this.props.location.state.is_authenticated} />
+            
             <Grid padded>
                 <Title icon='blind' content='Pet Name' subheader='Some Sub Heading'/>
                 <Grid.Column computer={16} mobile={16} tablet={16}>
@@ -82,6 +89,9 @@ class   PreviewPet extends React.Component{
                     </Grid>
                 </Grid.Column>
             </Grid>
+            </> 
+            }
+            </>
         )
     }
 }

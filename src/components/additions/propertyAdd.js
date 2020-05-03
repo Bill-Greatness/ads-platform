@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Title from '../_components/TopHead'
+import {TopNavigation} from '../'
 import {Grid, Form, Button} from 'semantic-ui-react'
 
 class   AddProperty extends React.Component{
@@ -13,6 +14,11 @@ class   AddProperty extends React.Component{
                 {text:'Office Space', value:'office_space', key:4}
             ]
         return(
+            <>
+            {this.props.location.state === undefined ?
+            this.props.history.push({pathname:'/sign-up'}):
+            <>
+            <TopNavigation is_authenticated={this.props.location.state.is_authenticated} /> 
             <Grid padded>
                 <Title icon='car' content='Advertise Property on Market' subheader='Reach out to potential Customers!'/>
                 <Grid.Column computer={16} tablet={16} mobile={16}>
@@ -86,8 +92,14 @@ class   AddProperty extends React.Component{
                     </Grid>
                 </Grid.Column>
             </Grid>
+            </>}
+            </>
         )
     }
+}
+
+AddProperty.propTypes = {
+    is_authenticated:PropTypes.bool.isRequired
 }
 
 export default AddProperty

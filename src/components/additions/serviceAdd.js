@@ -1,5 +1,6 @@
 import React from 'react'
 import {Grid, Form, Button} from 'semantic-ui-react'
+import PropTypes from 'prop-types'
 import {TopNavigation} from '../'
 import Title from '../_components/TopHead'
 
@@ -22,6 +23,9 @@ class AddService extends React.Component{
         },{text:'Online or Virtual', value:'online_or_virtual'},
         {text:'Free Service', value:'free_service'}]
         return(
+            <>
+            {this.props.location.state === undefined ?
+            this.props.history.push({pathname:'/sign-up'}) :
             <>
             <TopNavigation is_authenticated={this.props.location.state.is_authenticated}/>
             <Grid padded>
@@ -72,13 +76,19 @@ class AddService extends React.Component{
                              label='Service Description'
                              />
                             </Form>
+                            <Button circular>Advertise </Button>
                         </Grid.Column>
                     </Grid>
                 </Grid.Column>
             </Grid>
+            </>}
             </>
         )
     }
+}
+
+AddService.propTypes = {
+    is_authenticated:PropTypes.bool.isRequired
 }
 
 export default AddService

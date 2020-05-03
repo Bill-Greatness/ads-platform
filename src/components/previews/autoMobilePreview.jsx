@@ -1,5 +1,6 @@
 import React from 'react'
 import {Grid, Segment, Table} from 'semantic-ui-react'
+import {TopNavigation } from '../'
 import Title from '../_components/TopHead'
 
 
@@ -9,9 +10,21 @@ class  PreviewAutoMobile extends React.Component{
         this.state = {
             
         }
+        
+        
     }
+    
+
+    
     render(){
+       
         return(
+            
+            <>
+            {this.props.location.state === undefined ?
+            this.props.history.push({pathname:'/categories/auto-mobiles', state:{is_authenticated:false}}) :
+            <>
+            <TopNavigation is_authenticated={this.props.location.state.is_authenticated}/>
            <Grid padded>
                 <Title icon='car' content='First Preview' subheader='Another subheader' />
                 <Grid padded>  
@@ -102,6 +115,8 @@ class  PreviewAutoMobile extends React.Component{
                     
                 </Grid>
            </Grid>
+           </>}
+           </>
         )
     }
 }

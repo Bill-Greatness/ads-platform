@@ -1,7 +1,8 @@
 import React from 'react'
-import {Grid, Card, Image, Label, Divider, Header, List} from 'semantic-ui-react'
+import {Grid, Card, Image, Label, Divider} from 'semantic-ui-react'
 import dress from '../../media/clothing.png'
 import PandL from '../_components/priceAndLocation'
+import {Link} from 'react-router-dom'
 import Title from '../_components/TopHead'
 import {TopNavigation } from '../'
 
@@ -25,7 +26,8 @@ class Clothings extends React.Component {
               <Grid padded>
                 {[1,2,3,4,5,6,7,8].map(itm => (
                   <Grid.Column computer={4} mobile={8} tablet={4} key={itm}>
-                  <Card as='a' href='/fashion-preview/1'  raised style={{minHeight:150}} onClick={()=>{}}>
+                  <Link to={{pathname:'/fashion-preview/1', state:{is_authenticated:this.props.location.state.is_authenticated}}}>
+                  <Card raised style={{minHeight:150}} onClick={()=>{}}>
                       <Card.Header textAlign='right'><Label size='small' color='orange' tag>Clothing, 500$</Label></Card.Header>
                       <Card.Content>
                       <Image src={dress} size='tiny'/>
@@ -33,6 +35,7 @@ class Clothings extends React.Component {
                       <Card.Meta>By: Some Random Name</Card.Meta>
                       </Card.Content>
                   </Card>
+                  </Link>
                   </Grid.Column>
                 ))}
               </Grid>

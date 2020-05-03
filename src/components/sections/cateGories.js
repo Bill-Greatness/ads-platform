@@ -157,64 +157,9 @@ class AddCategories extends React.Component {
             </Grid.Column>
             
             
-            <Grid.Column computer={4} mobile={8} tablet={4}>
-              <Card raised onClick={()=>{}}>
-                <Card.Content>
-                  <Header as='h2' textAlign='center' icon>
-                    <Header.Content>
-                          <Image  src={freelancing} size='small'/>
-                    </Header.Content>
-                    <Header.Subheader>Job Alerts</Header.Subheader>
-                  </Header>
-                </Card.Content>
+            
 
-              </Card>
-            </Grid.Column>
             
-            
-            <Grid.Column computer={4} mobile={8} tablet={4}>
-              <Card raised onClick={()=>{}}>
-                <Card.Content>
-                  <Header as='h2' textAlign='center' icon>
-                    <Header.Content>
-                          <Image  src={freelancing} size='small'/>
-                    </Header.Content>
-                    <Header.Subheader>Food Stuffs</Header.Subheader>
-                  </Header>
-                </Card.Content>
-
-              </Card>
-            </Grid.Column>
-            
-            
-            <Grid.Column computer={4} mobile={8} tablet={4}>
-              <Card raised onClick={()=>{}}>
-                <Card.Content>
-                  <Header as='h2' textAlign='center' icon>
-                    <Header.Content>
-                          <Image  src={freelancing} size='small'/>
-                    </Header.Content>
-                    <Header.Subheader>Lands</Header.Subheader>
-                  </Header>
-                </Card.Content>
-
-              </Card>
-            </Grid.Column>
-            
-            
-            <Grid.Column computer={4} mobile={8} tablet={4}>
-              <Card raised onClick={()=>{}}>
-                <Card.Content>
-                  <Header as='h2' textAlign='center' icon>
-                    <Header.Content>
-                          <Image  src={freelancing} size='small'/>
-                    </Header.Content>
-                    <Header.Subheader>Others</Header.Subheader>
-                  </Header>
-                </Card.Content>
-
-              </Card>
-            </Grid.Column>
 
       </Grid>
       </>

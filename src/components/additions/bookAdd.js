@@ -26,6 +26,9 @@ class AddBook extends React.Component{
         {value:'drama', text:'Drama'}]
         return(
             <>
+            {this.props.location.state === undefined ?
+            this.props.history.push({pathname:'/sign-up'}):
+            <>
             <TopNavigation is_authenticated={this.props.location.state.is_authenticated}/>
             <Grid padded>
             <Title content='Publish Book on Market' subheader='Explore by Reading' icon='book' />
@@ -104,9 +107,13 @@ class AddBook extends React.Component{
             
   
             </Grid>
+            </>}
             </>
         )
     }
 }
 
+AddBook.propTypes = {
+    is_authenticated:PropTypes.bool.isRequired
+}
 export default AddBook

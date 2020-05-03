@@ -1,6 +1,8 @@
 import React from 'react'
 import {Form, Grid, Button } from 'semantic-ui-react'
 import Title from '../_components/TopHead'
+import {TopNavigation} from '../'
+import PropTypes from 'prop-types'
 
 class  AddDevice extends React.Component {
     constructor(){
@@ -19,6 +21,11 @@ class  AddDevice extends React.Component {
             {value:'speakers_and_microphones', text:'Speakers and Microphones', key:5}
         ]
         return(
+            <>
+            {this.props.location.state === undefined ?
+            this.props.history({pathname:'/sign-up'}):
+            <>
+            <TopNavigation is_authenticated={this.props.location.state.is_authenticated} />
             <Grid padded>
                 <Title content='Advertise Device on Market' icon='add' subheader='Reach Out to Customers!' />
                 <Grid.Column computer={16} mobile={16} tablet={16}>
@@ -113,8 +120,14 @@ class  AddDevice extends React.Component {
                     </Grid>
                 </Grid.Column>
             </Grid>
+            </>}
+            </>
         )
     }
+}
+
+AddDevice.propTypes = {
+    is_authenticated:PropTypes.bool.isRequired
 }
 
 export default AddDevice

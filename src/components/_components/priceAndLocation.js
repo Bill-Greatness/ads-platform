@@ -23,7 +23,7 @@ class PandL extends React.Component{
               <br/>
               <Form>
         <Form.Field>
-          /*Price Tag Here*/
+          {/*Price Tag Here*/}
         </Form.Field>
         <Form.Field>
         <Radio

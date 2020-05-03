@@ -1,5 +1,6 @@
 import React from 'react'
 import {Grid, Item, Segment, Label, Divider} from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
 import automobile from '../../media/auto-mobile.png'
 import Title from '../_components/TopHead'
 import {TopNavigation} from '../'
@@ -23,7 +24,11 @@ class AutoMobiles extends React.Component {
                           <Item>
                             <Item.Image src={automobile} size='tiny'/>
                             <Item.Content>
-                              <Item.Header as='a' href={'/automobiles/1'}>Name of Car </Item.Header>
+                              <Item.Header as='a'>
+                              <Link to={{pathname:'/automobiles/1', state:{is_authenticated:this.props.location.state.is_authenticated}}}>
+                              Name of Car
+                              </Link>
+                              </Item.Header>
                               <Item.Description> Some long Description here Some long Description here Some long Description here Some long Description here </Item.Description>
                               <Item.Extra><Label color='teal' ribbon='right' content='Cars,  540.00$'/></Item.Extra>
                             </Item.Content>
