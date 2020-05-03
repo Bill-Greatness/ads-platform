@@ -1,10 +1,17 @@
 import React from 'react'
 import electronics from '../../media/phones-and-computers.png'
-import {Grid, Card,  Label, Image, Icon, Divider, List, Header} from 'semantic-ui-react'
+import {Grid, Card,  Label, Image, Icon, Divider, List, Header,} from 'semantic-ui-react'
 import Title from '../_components/TopHead'
+import PandL from '../_components/priceAndLocation'
 import {TopNavigation} from '../'
 
 class ElectronicDevices extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      price_tag:''
+    }
+  }
   render () {
       return(
         <>
@@ -16,17 +23,7 @@ class ElectronicDevices extends React.Component {
           <Divider horizontal>Tv Sets </Divider>
           </Grid.Column>
           <Grid.Column computer={2} only='computer'>
-            <Header as='h5' content='Browse Locations'/>
-              <List divided relaxed>
-                <List.Item as='a'>Takoradi</List.Item>
-                <List.Item>Kumasi</List.Item>
-                <List.Item>Team</List.Item>
-                <List.Item>Accra</List.Item>
-                <List.Item>Tamale</List.Item>
-                <List.Item>Ho</List.Item>
-                <List.Item>Kasoa</List.Item>
-                <List.Item>Koforidua</List.Item>
-              </List>
+            <PandL />
           </Grid.Column>
           
           <Grid.Column computer={14} tablet={14} mobile={16}>

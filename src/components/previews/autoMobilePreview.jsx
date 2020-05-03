@@ -2,6 +2,7 @@ import React from 'react'
 import {Grid, Segment, Table} from 'semantic-ui-react'
 import Title from '../_components/TopHead'
 
+
 class  PreviewAutoMobile extends React.Component{
     constructor(){
         super()

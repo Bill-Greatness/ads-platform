@@ -118,7 +118,7 @@ class AddCategories extends React.Component {
                     <Header.Content>
                           <Image  src={books} size='small'/>
                     </Header.Content>
-                    <Header.Subheader>Books and Journals</Header.Subheader>
+                    <Header.Subheader>Books</Header.Subheader>
                   </Header>
                 </Card.Content>
 
@@ -179,7 +179,7 @@ class AddCategories extends React.Component {
                     <Header.Content>
                           <Image  src={freelancing} size='small'/>
                     </Header.Content>
-                    <Header.Subheader>Job Alerts</Header.Subheader>
+                    <Header.Subheader>Food Stuffs</Header.Subheader>
                   </Header>
                 </Card.Content>
 
@@ -194,7 +194,7 @@ class AddCategories extends React.Component {
                     <Header.Content>
                           <Image  src={freelancing} size='small'/>
                     </Header.Content>
-                    <Header.Subheader>Job Alerts</Header.Subheader>
+                    <Header.Subheader>Lands</Header.Subheader>
                   </Header>
                 </Card.Content>
 
@@ -209,7 +209,7 @@ class AddCategories extends React.Component {
                     <Header.Content>
                           <Image  src={freelancing} size='small'/>
                     </Header.Content>
-                    <Header.Subheader>Job Alerts</Header.Subheader>
+                    <Header.Subheader>Others</Header.Subheader>
                   </Header>
                 </Card.Content>
 

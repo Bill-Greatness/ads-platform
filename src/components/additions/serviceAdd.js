@@ -7,7 +7,12 @@ class AddService extends React.Component{
     constructor(){
         super()
         this.state = {
-            
+            service_name:'',
+            serive_location:'',
+            service_tag:'',
+            service_duration:'',
+            service_price:'',
+            service_description:''
         }
     }
     

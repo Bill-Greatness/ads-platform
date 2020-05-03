@@ -1,6 +1,7 @@
 import React from 'react'
 import {Grid, Card, Image, Label, Divider, Header, List} from 'semantic-ui-react'
 import dress from '../../media/clothing.png'
+import PandL from '../_components/priceAndLocation'
 import Title from '../_components/TopHead'
 import {TopNavigation } from '../'
 
@@ -18,17 +19,7 @@ class Clothings extends React.Component {
               </Grid.Column>
               <Grid>
               <Grid.Column computer={2} only='computer'>
-            <Header as='h5' icon='location arrow' content=' Locations'/>
-              <List divided relaxed>
-                <List.Item as='a'>Takoradi</List.Item>
-                <List.Item>Kumasi</List.Item>
-                <List.Item>Team</List.Item>
-                <List.Item>Accra</List.Item>
-                <List.Item>Tamale</List.Item>
-                <List.Item>Ho</List.Item>
-                <List.Item>Kasoa</List.Item>
-                <List.Item>Koforidua</List.Item>
-              </List>
+             <PandL />
           </Grid.Column>
               <Grid.Column computer={14} tablet={14} mobile={16}>
               <Grid padded>
