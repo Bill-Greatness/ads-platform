@@ -8,18 +8,32 @@ class  AddDevice extends React.Component {
     constructor(){
         super()
         this.state = {
-            
+            device_type: '',
+            device_name: '',
+            price: '',
+            and_or_ios_version:'',
+            description:'',
+            ram_size:'',
+            memory_size:'',
+            device_color:'',
+            device_image:''
         }
     }
     
+    postDevice = event => {
+        event.preventDefault()
+        console.log(this.state)
+    }
     render(){
         const POST_CATEGORIES = [
-            {value:'phones_and_tablets', text:'Phones and Tablets', key:1},
-            {value:'pc_and_laptops', text:'PC and Laptops', key:2},
-            {value: 'tv_sets', text:'Television Sets', key:3},
-            {value:'cameras_and_drones', text:'Cameras and Drones', key:4},
-            {value:'speakers_and_microphones', text:'Speakers and Microphones', key:5}
+            {value:'phones_and_tablets', text:'Phones and Tablets'},
+            {value:'pc_and_laptops', text:'PC and Laptops'},
+            {value: 'tv_sets', text:'Television Sets'},
+            {value:'cameras_and_drones', text:'Cameras and Drones'},
+            {value:'speakers_and_microphones', text:'Speakers and Microphones'}
         ]
+        
+        
         return(
             <>
             {this.props.location.state === undefined ?
@@ -31,12 +45,12 @@ class  AddDevice extends React.Component {
                 <Grid.Column computer={16} mobile={16} tablet={16}>
                 <Grid centered padded>
                 <Grid.Column computer={8} mobile={16} tablet={10}>
-                    <Form>
+                    <Form onSubmit={this.postDevice}>
                     <Form.Group widths='equal'>
                         <Form.Input
                         label='Device Name'
                         type='text'
-                        name='device_name'
+                        onChange={(e) => this.setState({device_name:e.target.value})}
                         required
                         value={this.state.device_name}
                         />
@@ -46,23 +60,27 @@ class  AddDevice extends React.Component {
                         label='Price'
                         name='device_price'
                         required
-                        value={this.state.device_price}
+                        onChange={(e) => this.setState({price:e.target.value})}
                         />
                 </Form.Group>
                      
-                <Form.Group widths='equal'>   
+                <Form.Group widths='equal'>
+                <Form.Select
+                        label='Device  Category'
+                        placeholder='Device Category'
+                        required
+                        options={POST_CATEGORIES}
+                        onChange={(e, node) => this.setState({device_type:node.value})}
+                        />
+                        
                    <Form.Input
                    required
                    label='Device Image'
-                   style={{width:230}} type='file' accept='image/*' id='device_image'/>
+                   style={{width:230}} type='file' accept='image/*' id='device_image'
+                   onChange={(e) => this.setState({device_image: e.target.files.length > 1 ? e.target.files[0] : e.target.files[0]})}
+                   />
                         
-                        <Form.Select
-                        label='Product Category'
-                        required
-                        options={POST_CATEGORIES}
-                        name='product_name'
-                        value={this.state.product_category}
-                        />
+                        
                         
                 </Form.Group>
                 
@@ -72,7 +90,8 @@ class  AddDevice extends React.Component {
                             name='ram_size'
                             required
                             label='Ram Size'
-                            value={this.state.ram_size}
+                            onChange={(e) => this.setState({ram_size:e.target.value})}
+                            
                             />
                             
                         <Form.Input
@@ -80,21 +99,22 @@ class  AddDevice extends React.Component {
                             required
                             label='Memory Size'
                            
-                            value={this.state.memory_size}
+                            onChange={(e) => this.setState({memory_size:e.target.value})}
                             />
                 </Form.Group>
                 <Form.Group widths='equal'>
                         <Form.Input
                             name='device_color'
                             label='Device Color'
-                            value={this.state.device_color}
+                            onChange={(e) => this.setState({device_color:e.target.value})}
                             required
                             />
                             
                             <Form.Input
                             name='android_version'
                             label='Android | Ios Version'
-                            value={this.state.android_or_ios_version}
+                            onChange={(e) => this.setState({and_or_ios_version:e.target.value})}
+                            
                             required
                             />
                 </Form.Group>
@@ -102,7 +122,8 @@ class  AddDevice extends React.Component {
                             <Form.TextArea
                             label='Description'
                             required
-                            value={this.state.device_description}
+                            onChange={(e) => this.setState({description:e.target.value})}
+                            
                             />
                             
                             <a href='/terms-and-condition'> Terms and Conditions </a>

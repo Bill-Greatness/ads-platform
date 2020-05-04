@@ -3,6 +3,7 @@ import Footer from './layouts/fooTer'
 
 import SignUp from './profiles/signUP'
 import LoGin from './profiles/loginIn'
+import UserProfile from './profiles/userProfile'
 
 import WelcomePage from './sections/homePage'
 import ElectronicDevices from './sections/electronicDevices'
@@ -30,6 +31,7 @@ export {
   WelcomePage,
   SignUp,
   LoGin,
+  UserProfile,
   ElectronicDevices,
   AutoMobiles,
   Clothings,

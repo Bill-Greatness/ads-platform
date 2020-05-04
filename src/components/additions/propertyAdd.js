@@ -5,6 +5,22 @@ import {TopNavigation} from '../'
 import {Grid, Form, Button} from 'semantic-ui-react'
 
 class   AddProperty extends React.Component{
+    constructor(){
+        super()
+        this.state = {
+            property_type:'',
+            property_name:'',
+            property_location:'',
+            property_price:'',
+            property_registered:false,
+            property_description:''
+        }
+    }
+    
+    postProperty = event => {
+        event.preventDefault()
+        console.log(this.state)
+    }
     render(){
         
             const PROPERTY_TYPES = [
@@ -16,7 +32,7 @@ class   AddProperty extends React.Component{
         return(
             <>
             {this.props.location.state === undefined ?
-            this.props.history.push({pathname:'/sign-up'}):
+            this.props.history.push({pathname:'/sign-in',state:{is_authenticated:false} }):
             <>
             <TopNavigation is_authenticated={this.props.location.state.is_authenticated} /> 
             <Grid padded>
@@ -24,10 +40,11 @@ class   AddProperty extends React.Component{
                 <Grid.Column computer={16} tablet={16} mobile={16}>
                     <Grid centered padded>
                         <Grid.Column computer={12} tablet={12} mobile={16}>
-                            <Form>
+                            <Form onSubmit={this.postProperty}>
                             <Form.Group widths='equal'>
                                 <Form.Input
                                     label='Property Name'
+                                    onChange={(e) => this.setState({property_name:e.target.value})}
                                     placeholder='Property Name'
                                     required
                                     />
@@ -36,6 +53,7 @@ class   AddProperty extends React.Component{
                                 <Form.Input
                                 required
                                 label='Poperty Location'
+                                onChange={(e) => this.setState({property_location:e.target.value})}
                                 placeholder='Property Location'
                                 />
                                 </Form.Group>
@@ -44,12 +62,14 @@ class   AddProperty extends React.Component{
                                    
                                 <Form.Input
                                 required
+                                onChange={(e) => this.setState({property_price:e.target.value})}
                                 placeholder='Property Price'
                                 label='Property Price'
                                 />
                                 
                                 <Form.Input
                                 label='Property Images (more than 2)'
+                                onChange={(e) => this.setState({property_image:e.target.files[0]})}
                                 required
                                 type='file'
                                 multiple={true}
@@ -62,6 +82,7 @@ class   AddProperty extends React.Component{
                                      <Form.Select
                                         required
                                         placeholder='Property Type'
+                                        onChange={(e, node) => this.setState({property_type:node.value})}
                                         label='Property Type'
                                         options={PROPERTY_TYPES}
                                         />
@@ -75,13 +96,15 @@ class   AddProperty extends React.Component{
                                 </Form.Group>
                                 
                                 <Form.Checkbox
+                                onChange={(e) => this.setState({property_registered:e.target.value})}
                                 label='Property Registered ?'
-                                checked='checked'
+                                checked={this.state.property_registered}
                                 />
                                 
                                 
                                 <Form.TextArea
                                 label='Property Description'
+                                onChange={(e) => this.setState({description:e.target.value})}
                                 required
                                 />
                                 

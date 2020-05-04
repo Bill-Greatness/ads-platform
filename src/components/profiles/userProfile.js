@@ -1,6 +1,7 @@
 import React from 'react'
 import {Grid, Header, Segment, Table} from 'semantic-ui-react'
 import PropTypes from 'prop-types'
+import {TopNavigation } from '../'
 
 class UserProfile extends React.Component {
   constructor(){
@@ -11,9 +12,15 @@ class UserProfile extends React.Component {
   }
   render () {
     return(
+      <>
+      {this.props.location.state === undefined || this.props.location.state.is_authenticated === false ?
+      this.props.history.push({pathname:'/sign-up', state:{is_authenticated:false}}) :
+      <>
+      <TopNavigation is_authenticated={this.props.location.state.is_authenticated} />
       <Grid padded>
+      
+      <Grid.Column computer={16} mobile={16} tablet={16}>
       <Segment>
-      <Grid.Column computer={16} mobile={16} tablet={16}>   
               <Header as='h1' textAlign='center'>
                   <Header.Content>
                     Test User Name
@@ -23,8 +30,8 @@ class UserProfile extends React.Component {
               <Table unstackable>
                 <Table.Header>
                   <Table.Row>
-                    <Table.Cell>Side</Table.Cell>
-                    <Table.Cell>Side 2</Table.Cell>
+                    <Table.HeaderCell>Side</Table.HeaderCell>
+                    <Table.HeaderCell>Side 2</Table.HeaderCell>
                   </Table.Row>
                 </Table.Header>
                 <Table.Body>
@@ -54,9 +61,12 @@ class UserProfile extends React.Component {
                   </Table.Row>
                 </Table.Body>
               </Table>
+              </Segment>
         </Grid.Column>
-        </Segment>
+        
       </Grid>
+      </>}
+      </>
     )
   }
 }

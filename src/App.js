@@ -6,7 +6,7 @@ import {AutoMobiles,Services,
    Footer, WelcomePage, SignUp,AddPost,
     LoGin,ElectronicDevices, Clothings,
     Pets, Books, AddDevice, AddProperty,
-    AddFashion,AddPet,AddBook,AddService,AddVacancy
+    AddFashion,AddPet,AddBook,AddService,AddVacancy, UserProfile
     } from './components'
 import {PreviewAutoMobile,PreviewPet,
 PreviewDevice, PreviewFashion,
@@ -33,8 +33,11 @@ class App extends React.Component {
           <Router>
               <Switch>
                   <Route path='/' exact component={WelcomePage} />
+                  
                   <Route path='/become-a-registered-member' component={SignUp} />
                   <Route path='/sign-in' component={LoGin} />
+                  <Route path='/user-profile' component={UserProfile} />
+                  
                   <Route path='/categories/electronic-gadgets' component={ElectronicDevices} />
                   <Route path='/categories/auto-mobiles' component={AutoMobiles} />
                   <Route path='/categories/fashion-and-beauty' component={Clothings} />

@@ -20,29 +20,29 @@ class TopNavigation extends React.Component {
             <Menu fixed={'top'} pointing borderless>
             <Link to={{pathname:'/', state:{is_authenticated: this.props.is_authenticated}}}>
 
-              <Menu.Item name='Logician Ads'/>
+              <Menu.Item name='Logician Ads' as='h4'/>
               </Link>
 
               <Menu.Menu position='right' className='hide-on-mobile'>
-                <Menu.Item>
+               {/* <Menu.Item>
                  <Search
                  size='mini'
                     loading={isLoading}
                     /*onResultSelect={this.handleResultSelect}
                     onSearchChange={_.debounce(this.handleSearchChange, 500, {
                       leading: true,
-                    })}*/
+                    })}*
                     results={results}
                     value={value}
                     {...this.props}
                   />
-                </Menu.Item>
+                </Menu.Item> */ }
 
                   
     
                 {is_authenticated ?
                 <>
-                <Link to=''>
+                
                 <Dropdown item text='Categories' icon='globe' simple>
                     <Dropdown.Menu>
                      <Link to={{pathname:'/categories/electronic-gadgets', state:{is_authenticated: this.props.is_authenticated}}}>
@@ -85,7 +85,7 @@ class TopNavigation extends React.Component {
                       </Link>
                     </Dropdown.Menu>
                   </Dropdown>
-                  </Link>
+               
                   <Link to={{pathname:'/add-to-market', state:{is_authenticated: this.props.is_authenticated}}}>
                  <Menu.Item icon='add' name='Post Product'/>
                  </Link>

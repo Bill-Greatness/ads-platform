@@ -80,4 +80,13 @@ var schema = graphql.buildSchema({
         service_price:String!,
         service_description:String!
     }
+    
+    type Vacancy{
+        vacn_title:String!,
+        vacn_location:String!,
+        vacn_tag:String!,
+        vacn_duration:String!,
+        vacn_price:String!,
+        vacn_description:String!
+    }
 })

@@ -46,7 +46,8 @@ class  AddPost extends React.Component {
                     
                     
                     <Grid.Column computer={4} tablet={4} mobile={16}>
-                        <Card as='a' onClick={()=>{}} raised href='/add-property'>
+                    <Link to={{pathname:'/add-property', state:{is_authenticated:this.props.location.state.is_authenticated}}}>
+                        <Card onClick={()=>{}} raised>
                             <Card.Content>
                             <Card.Header>Cars & Real Estates</Card.Header>
                             <List divided>
@@ -61,7 +62,9 @@ class  AddPost extends React.Component {
 
                             </List>
                             </Card.Content>
+                        
                         </Card>
+                        </Link>
                     </Grid.Column>
                     
                     
