@@ -227,6 +227,12 @@ const {GraphQLObjectType,GraphQLBoolean,GraphQLInt, GraphQLString, GraphQLID, Gr
   }
  })
  
+ const typeMutation = new GraphQLObjectType({
+  mutation:addUser{
+    return hello
+  }
+ })
+ 
  const schema = new GraphQLSchema({query:typeQuery})
  
  module.exports = schema

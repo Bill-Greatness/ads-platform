@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {Menu, Dropdown, Search} from 'semantic-ui-react'
+import {Menu, Dropdown, Search, Segment, TransitionablePortal} from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 
 class TopNavigation extends React.Component {
@@ -9,6 +9,7 @@ class TopNavigation extends React.Component {
     this.state = {
     isLoading:false,
     value:'',
+    open_search:false,
     results:{}
   }
   }
@@ -24,19 +25,23 @@ class TopNavigation extends React.Component {
               </Link>
 
               <Menu.Menu position='right' className='hide-on-mobile'>
-               {/* <Menu.Item>
-                 <Search
-                 size='mini'
+               <Menu.Item icon='search' onClick={(e) => this.setState({open_search:!this.state.open_search})}/> 
+                <TransitionablePortal open={this.state.open_search} animation={{transition:'fly left', duration:500}} >
+                  <Segment  style={{zIndex:1000, position:'absolute', top:10, right:0}}>
+                      <Search
+                      size='small'
                     loading={isLoading}
+                    results={results}
                     /*onResultSelect={this.handleResultSelect}
                     onSearchChange={_.debounce(this.handleSearchChange, 500, {
                       leading: true,
                     })}*
-                    results={results}
+                    */
                     value={value}
                     {...this.props}
                   />
-                </Menu.Item> */ }
+                  </Segment>
+                </TransitionablePortal>
 
                   
     

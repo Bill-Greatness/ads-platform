@@ -16,13 +16,19 @@ class AddBook extends React.Component{
                 book_description:''
             }
         }
+        
+        postBook = event => {
+            event.preventDefault()
+            console.log(this.state)
+        }
     render(){
-        const GENRES = [{
-            value:'romance', text:'Romance'
-        }, {value:'history', text:'History'},
+        const GENRES = [
+        { value:'romance', text:'Romance'},
+        {value:'history', text:'History'},
         {value:'sci-fi', text:'Sci-Fi'},
         {value:'religion', text:'Religion'},
         {value:'mystery', text:'Mystery'},
+        {value:'philosophy', text:'Philosophy'},
         {value:'drama', text:'Drama'}]
         return(
             <>
@@ -37,7 +43,7 @@ class AddBook extends React.Component{
             <Grid.Column computer={16} tablet={16} mobile={16}>
                  <Grid centered>
                  <Grid.Column computer={10} tablet={10} mobile={14}>
-                    <Form>
+                    <Form onSubmit={this.postBook}>
                     <Form.Group widths='equal'>
                         <Form.Input
                         onChange={(e) => this.setState({book_title:e.target.value})}
