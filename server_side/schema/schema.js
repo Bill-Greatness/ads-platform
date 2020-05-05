@@ -228,11 +228,92 @@ const {GraphQLObjectType,GraphQLBoolean,GraphQLInt, GraphQLString, GraphQLID, Gr
  })
  
  const typeMutation = new GraphQLObjectType({
-  mutation:addUser{
-    return hello
+  name:'Mutation',
+  fields:{
+   addUser:{
+    type: typeUser,
+    args:{
+         state:{type: GraphQLObjectType}
+        },
+        resolve: (source, args) => {
+        return "Split Code to Install in DataBase."
+       }
+   },
+   addDevice:{
+    type: typeDevice,
+    args:{
+     state: {type: GraphQLObjectType}
+    },
+    resolve:(source, args) => {
+     return 'Code to Install in DataBase'
+    }
+   },
+   
+   addService:{
+    type: typeService,
+    args:{
+     state:{type: GraphQLObjectType}
+    },
+    resolve:(source, args) => {
+     return 'Split Code to Install into Database'
+    }
+   },
+   
+   addBook:{
+    type: typeBook,
+    args:{
+     state:{type: GraphQLObjectType}
+    },
+    resolve:(source, args) => {
+     return 'Split Code to install into Database'
+    }
+   },
+   
+   addVacancy:{
+    type: typeVacancy,
+    args:{
+     state:{type:GraphQLObjectType}
+    },
+    resolve:(source, args) => {
+     return 'Split Code to Install into a Database'
+    }
+   },
+   
+   addPet:{
+    type: typePet,
+    args:{
+     state:{type:GraphQLObjectType}
+    },
+    resolve:(source, args) => {
+     return 'Split code to install into a database!'
+    }
+   },
+   
+   addFashion:{
+    type: typeFashion,
+    args:{
+     state:{type: GraphQLObjectType}
+    },
+    resolve:(source, args)  => {
+     return 'Split Code to install into database'
+    }
+   },
+   addProperty:{
+    type: typeProperty,
+    args:{
+     state:{type:GraphQLObjectType}
+    },
+    resolve:(source, args){
+     return 'Split Code to install into a database'
+    }
+   }
+   
+   
   }
+  
+  
  })
  
- const schema = new GraphQLSchema({query:typeQuery})
+const schema = new GraphQLSchema({query:typeQuery, mutation: typeMutation})
  
  module.exports = schema

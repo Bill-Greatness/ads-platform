@@ -11,6 +11,8 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "apollo-boost": "^0.4.7",
+    "apollo-cache-inmemory": "^1.6.5",
+    "apollo-link-http": "^1.5.17",
     "gql": "^1.1.2",
     "graphql": "^15.0.0",
     "is-promise": "2.1.0",
