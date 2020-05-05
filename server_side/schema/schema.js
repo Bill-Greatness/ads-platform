@@ -1,92 +1,232 @@
 const graphql = require('graphql')
+const {GraphQLObjectType,GraphQLBoolean,GraphQLInt, GraphQLString, GraphQLID, GraphQLList, GraphQLSchema} = graphql
 
-var schema = graphql.buildSchema({
-    type User{
-        user_id: ID!,
-        firstname: String!,
-        surname:String!,
-        date_of_birth:String!,
-        id_type:String!,
-        id_number:String!,
-        gender:String!,
-        location:String!,
-        email:String!,
-        digital_addr:String!,
-        phone:String!,
-        password:String!
-    }
+
+ const typeUser = new GraphQLObjectType({
+  name:'Users',
+  fields:{
+        user_id: {type:GraphQLID},
+        firstname: {type: GraphQLString},
+        surname:{type:GraphQLString},
+        date_of_birth:{type:GraphQLString},
+        id_type:{type:GraphQLString},
+        id_number:{type:GraphQLString},
+        gender:{type:GraphQLString},
+        location:{type:GraphQLString},
+        email:{type:GraphQLString},
+        digital_addr:{type:GraphQLString},
+        phone:{type:GraphQLString},
+        password:{type:GraphQLString}
+  }
+    })
     
-    type Device{
-        posted_by:User!,
-        device_type: String!,
-        device_name: String!,
-        price: String!,
-        and_or_ios_version:String,
-        description:String!,
-        ram_size:String!,
-        memory_size:String!,
-        device_color:String!,
-        device_image:String!
+   const  typeDevice  = new GraphQLObjectType({
+       name:'Device',
+       fields:{    
+        device_type: {type:GraphQLString},
+        device_name: {type:GraphQLString},
+        price: {type:GraphQLString},
+        and_or_ios_version:{type:GraphQLString},
+        description:{type:GraphQLString},
+        ram_size:{type:GraphQLString},
+        memory_size:{type:GraphQLString},
+        device_color:{type:GraphQLString},
+        device_image:{type:GraphQLString},
+         posted_by:{
+         type: typeUser,
+         resolve:(source, params) => {
+          //return [{'A User is Here'}]
+         }
+        }     
+    }})
+    
+   const  typeFashion = new GraphQLObjectType({
+    name:'Fashion',
+    fields:{
         
-    }
-    
-    type Fashion{
-        posted_by:User!,
-        item_name:String!,
-        item_price:String!,
-        number_in_stock: Int!,
-        gender_target:String!,
-        size_range:String!,
-        item_category:String!,
-        description:String!,
-        item_tag:String!,
+        item_name:{type:GraphQLString},
+        item_price:{type:GraphQLString},
+        number_in_stock: {type:GraphQLInt},
+        gender_target:{type:GraphQLString},
+        size_range:{type:GraphQLString},
+        item_category:{type:GraphQLString},
+        description:{type:GraphQLString},
+        item_tag:{type:GraphQLString},
+         posted_by:{
+         type: typeUser,
+         resolve:(source, params) => {
+          return 'A User is Here'
+         }
+        }
         
+    }})
+    
+    const typeProperty = new GraphQLObjectType ({
+     name:'Property',
+     fields:{
+        
+        property_type:{type:GraphQLString},
+        property_name:{type:GraphQLString},
+        property_location:{type:GraphQLString},
+        property_price:{type:GraphQLString},
+        property_registered:{type: GraphQLBoolean},
+        property_description:{type:GraphQLString},
+         posted_by:{
+         type: typeUser,
+         resolve:(source, params) => {
+          return 'A User is Here'
+         }
+        }
+    }})
+    
+    const typeAnimal = new GraphQLObjectType({
+     name:'Animal',
+     fields:{
+        animal_name:{type:GraphQLString},
+        number_available:{type: GraphQLInt},
+        price:{type:GraphQLString},
+        description:{type:GraphQLString},
+        posted_by:{
+         type: typeUser,
+         resolve:(source, params) => {
+          return 'A User is Here'
+         }
+        }
+    }})
+    
+   const  typeBook = new GraphQLObjectType ({
+    name:'Book',
+    fields:{
+        book_title:{type:GraphQLString},
+        book_price:{type:GraphQLString},
+        book_genre:{type:GraphQLString},
+        date_publish:{type:GraphQLString},
+        name_of_author:{type:GraphQLString},
+        number_available:{type:GraphQLInt},
+        book_description:{type:GraphQLString},
+        posted_by:{
+         type:typeUser,
+        resolve:(source, param) => {
+          return 'A User is Here'
+        }
+    }}})
+    
+    const typeService = new GraphQLObjectType({
+     name: 'Service',
+     fields:{
+        service_name:{type:GraphQLString},
+        serive_location:{type:GraphQLString},
+        service_tag:{type:GraphQLString},
+        service_duration:{type:GraphQLString},
+        service_price:{type:GraphQLString},
+        service_description:{type:GraphQLString},
+        posted_by:{
+         type: typeUser,
+         resolve:(source, params) => {
+          return 'A User is Here'
+         }
+        }
+    }})
+    
+ const  typeVacancy = new GraphQLObjectType({
+  name:'Vacancy',
+  fields:{
+        vacn_title:{type:GraphQLString},
+        vacn_location:{type:GraphQLString},
+        vacn_tag:{type:GraphQLString},
+        vacn_duration:{type:GraphQLString},
+        vacn_price:{type:GraphQLString},
+        vacn_description:{type:GraphQLString},
+        posted_by:{
+         type: typeUser,
+         resolve:(source, params) => {
+          return 'A User is Here'
+         }
+        }
+    }})
+ 
+ 
+ const typeQuery = new GraphQLObjectType({
+  name: 'Query',
+  fields:{
+    user:{
+     type: typeUser,
+       args:{id:{type: GraphQLID}},
+       resolve:(source, {id}) => {
+      return 'Some Random User Details Here'
+     }
+    },
+    devices:{
+      type:GraphQLList(typeDevice),
+      resolve:() => {
+       return 'A List Of Devices Here'
+      }
+    },
+    device:{
+     type:typeDevice,
+     args:{id:{type:GraphQLID}},
+     resolve:(source, {id}) => {
+      return id
+     }
+    },
+    fashion_data:{
+     type:GraphQLList(typeFashion),
+     resolve:() => {
+      return 'A list of all Fashion Data'
+     }
+    },
+    fashion_item:{
+     type: typeFashion,
+     args:{id:{type:GraphQLID}},
+     resolve:(source, {id}) => {
+      return 'A Single Fashion Object'
+     }
+    },
+    services:{
+     type:GraphQLList(typeService),
+     resolve:() => {
+      return 'A list of Services Here'
+     }
+    },
+    service:{
+     type:typeService,
+     args:{id:{type:GraphQLID}},
+     resolve:(source, id) => {
+      return 'A Single Service Here'
+     }
+    },
+    
+    allpets:{
+     type: GraphQLList(typeAnimal),
+     resolve:() => {
+      return 'A list of Animals'
+     }
+    },
+    pet:{
+     type: typeAnimal,
+     args:{id:{type:GraphQLID}},
+     resolve:(source, {id}) => {
+      return 'A List Of Pets Here'
+     }
+    },
+    vacancies:{
+     type:GraphQLList(typeVacancy),
+     resolve:() => {
+      return 'Vacancies Here'
+     }
+    },
+    vacancy:{
+     args:{id:{type:GraphQLID}},
+     resolve:(source,{id}) => {
+      return 'Vacancies Here'
+     }
     }
     
-    type Property{
-        posted_by:User!
-        property_type:String!,
-        property_name:String!,
-        property_location:String!,
-        property_price:String!,
-        property_registered:Boolean!,
-        property_description:String!
-    }
     
-    type Animal{
-        posted_by:User!,
-        animal_name:String!,
-        number_available:Int!
-        price:String!,
-        description:String!
-    }
     
-    type Book{
-        book_title:String!,
-        book_price:String!,
-        book_genre:String!,
-        date_publish:String!,
-        name_of_author:String!,
-        number_available:Int!,
-        book_description:String!,
-        posted_by:User!
-    }
-    
-    type Service{
-        service_name:String!,
-        serive_location:String!,
-        service_tag:String!,
-        service_duration:String!,
-        service_price:String!,
-        service_description:String!
-    }
-    
-    type Vacancy{
-        vacn_title:String!,
-        vacn_location:String!,
-        vacn_tag:String!,
-        vacn_duration:String!,
-        vacn_price:String!,
-        vacn_description:String!
-    }
-})
+  }
+ })
+ 
+ const schema = new GraphQLSchema({query:typeQuery})
+ 
+ module.exports = schema
