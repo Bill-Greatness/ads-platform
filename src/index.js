@@ -4,7 +4,6 @@ import 'semantic-ui-css/semantic.min.css'
 import ApolloClient from 'apollo-boost'
 import {ApolloProvider} from '@apollo/react-hooks'
 import {InMemoryCache} from 'apollo-cache-inmemory'
-import {HttpLink} from 'apollo-link-http'
 import './App.css'
 import ReactDOM from 'react-dom';
 import App from './App';
@@ -13,10 +12,10 @@ import * as serviceWorker from './serviceWorker';
 
 
 const cache = new InMemoryCache()
-const link = new HttpLink({ uri:'http://localhost:3000/api'})
+
 const client = new ApolloClient({
   cache,
-  link
+  uri:'http://localhost:4000/graphql'
 })
 
 ReactDOM.render(

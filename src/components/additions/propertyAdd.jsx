@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {addNewProperty} from '../../queries/queries'
+import {graphql} from 'react-apollo'
 import Title from '../_components/TopHead'
-import {TopNavigation} from '../'
+import {TopNavigation} from '..'
 import {Grid, Form, Button} from 'semantic-ui-react'
 
 class   AddProperty extends React.Component{
@@ -19,7 +21,9 @@ class   AddProperty extends React.Component{
     
     postProperty = event => {
         event.preventDefault()
-        console.log(this.state)
+        this.props.addNewProperty({
+            variables:this.state
+        })
     }
     render(){
         
@@ -96,7 +100,7 @@ class   AddProperty extends React.Component{
                                 </Form.Group>
                                 
                                 <Form.Checkbox
-                                onChange={(e) => this.setState({property_registered:e.target.value})}
+                                onChange={(e) => this.setState({property_registered:!this.state.property_registered})}
                                 label='Property Registered ?'
                                 checked={this.state.property_registered}
                                 />
@@ -125,4 +129,4 @@ AddProperty.propTypes = {
     is_authenticated:PropTypes.bool.isRequired
 }
 
-export default AddProperty
+export default graphql(addNewProperty, {name:'addNewProperty'})(AddProperty)

@@ -1,7 +1,9 @@
 import React from 'react'
 import {Form, Grid, Button } from 'semantic-ui-react'
+import {graphql} from 'react-apollo'
+import {addNewDevice} from '../../queries/queries'
 import Title from '../_components/TopHead'
-import {TopNavigation} from '../'
+import {TopNavigation} from '..'
 import PropTypes from 'prop-types'
 
 class  AddDevice extends React.Component {
@@ -23,6 +25,9 @@ class  AddDevice extends React.Component {
     postDevice = event => {
         event.preventDefault()
         console.log(this.state)
+        this.props.addNewDevice({
+            variables:this.state
+        })
     }
     render(){
         const POST_CATEGORIES = [
@@ -36,8 +41,8 @@ class  AddDevice extends React.Component {
         
         return(
             <>
-            {this.props.location.state === undefined ?
-            this.props.history({pathname:'/sign-up'}):
+            {this.props.location.state === undefined || this.props.location.state.is_authenticated === false ?
+            this.props.history({pathname:'/sign-in'}):
             <>
             <TopNavigation is_authenticated={this.props.location.state.is_authenticated} />
             <Grid padded>
@@ -126,7 +131,6 @@ class  AddDevice extends React.Component {
                             
                             />
                             
-                            <a href='/terms-and-condition'> Terms and Conditions </a>
                             
                             <Form.Checkbox
                             label='I accept the Terms and Conditions'
@@ -151,4 +155,4 @@ AddDevice.propTypes = {
     is_authenticated:PropTypes.bool.isRequired
 }
 
-export default AddDevice
+export default graphql(addNewDevice, {name:'addNewDevice'})(AddDevice)

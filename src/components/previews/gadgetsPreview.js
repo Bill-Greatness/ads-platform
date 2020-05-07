@@ -47,7 +47,7 @@ class   PreviewDevice extends React.Component{
                     <Divider horizontal>Other Devices </Divider>
                     <Grid padded>
                     {[1,2,3,4,5,6,7,8,9,10].map(idx => (
-                        <Grid.Column key={idx} computer={4} tablet={3} mobile={2}>
+                        <Grid.Column key={idx} computer={4} tablet={3} mobile={8}>
                             <Segment>
                                 <h4>Device Here </h4>
                             </Segment>

@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {Menu, Dropdown, Search, Segment, TransitionablePortal} from 'semantic-ui-react'
+import SideBar from './sideBar'
+import {Menu, Dropdown, Search, TransitionablePortal} from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 
 class TopNavigation extends React.Component {
@@ -10,6 +11,7 @@ class TopNavigation extends React.Component {
     isLoading:false,
     value:'',
     open_search:false,
+    open_side:false,
     results:{}
   }
   }
@@ -27,7 +29,7 @@ class TopNavigation extends React.Component {
               <Menu.Menu position='right' className='hide-on-mobile'>
                <Menu.Item icon='search' onClick={(e) => this.setState({open_search:!this.state.open_search})}/> 
                 <TransitionablePortal open={this.state.open_search} animation={{transition:'fly left', duration:500}} >
-                  <Segment  style={{zIndex:1000, position:'absolute', top:10, right:0}}>
+                  <div style={{zIndex:1000, position:'absolute', top:40, right:0}}>
                       <Search
                       size='small'
                     loading={isLoading}
@@ -40,7 +42,7 @@ class TopNavigation extends React.Component {
                     value={value}
                     {...this.props}
                   />
-                  </Segment>
+                  </div>
                 </TransitionablePortal>
 
                   
@@ -104,8 +106,14 @@ class TopNavigation extends React.Component {
               
               <Menu.Menu position='right' className='hide-on-desktop'>
               <Menu.Item
-              icon='bars'
+              icon={this.state.open_side ? 'delete' : 'bars'}
+              onClick={(e) => this.setState({open_side:!this.state.open_side})}
               />
+              
+              <div style={{position:'absolute', left:0, top:40, zIndex:1000}}>
+                <SideBar visible={this.state.open_side} is_authenticated={this.props.is_authenticated}/>
+              </div>
+              
               </Menu.Menu>
             </Menu>
         )

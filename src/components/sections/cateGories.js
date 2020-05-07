@@ -16,11 +16,11 @@ class AddCategories extends React.Component {
     return (
       <>
       <Divider horizontal > Browse Categories </Divider>
-      <Grid  container>
+      <Grid  padded>
 
             <Grid.Column computer={4} mobile={8} tablet={4}>
             <Link to={{pathname:'/categories/electronic-gadgets', state:{is_authenticated: this.props.is_authenticated}}}>
-              <Card raised onClick={() => {}}>
+              <Card raised as='div' onClick={() => {}}>
                 <Card.Content>
                   <Header as='h2' textAlign='center' icon>
                     <Header.Content>
@@ -39,7 +39,7 @@ class AddCategories extends React.Component {
             
            <Link to={{pathname:'/categories/auto-mobiles', state:{is_authenticated: this.props.is_authenticated}}}>
 
-              <Card raised onClick={()=>{}}>
+              <Card raised as='div' onClick={()=>{}}>
                 <Card.Content>
                   <Header as='h2' textAlign='center' icon>
                     <Header.Content>
@@ -56,7 +56,7 @@ class AddCategories extends React.Component {
             <Grid.Column computer={4} mobile={8} tablet={4}>
           <Link to={{pathname:'/categories/fashion-and-beauty', state:{is_authenticated: this.props.is_authenticated}}}>
 
-              <Card raised onClick={()=>{}}>
+              <Card raised  as='div' onClick={()=>{}}>
                 <Card.Content>
                   <Header as='h2' textAlign='center' icon>
                     <Header.Content>
@@ -74,7 +74,7 @@ class AddCategories extends React.Component {
             <Grid.Column computer={4} mobile={8} tablet={4}>
               <Link to={{pathname:'/categories/animals-and-pets', state:{is_authenticated: this.props.is_authenticated}}}>
 
-              <Card raised onClick={()=>{}}>
+              <Card raised as='div' onClick={()=>{}}>
                 <Card.Content>
                   <Header as='h2' textAlign='center' icon>
                     <Header.Content>
@@ -95,7 +95,7 @@ class AddCategories extends React.Component {
             <Grid.Column computer={4} mobile={8} tablet={4}>
             <Link to={{pathname:'/categories/services', state:{is_authenticated: this.props.is_authenticated}}}>
 
-              <Card raised onClick={()=>{}}>
+              <Card raised as='div' onClick={()=>{}}>
                 <Card.Content>
                   <Header as='h2' textAlign='center' icon>
                     <Header.Content>
@@ -112,7 +112,7 @@ class AddCategories extends React.Component {
             <Grid.Column computer={4} mobile={8} tablet={4}>
             <Link to={{pathname:'/categories/books-and-journals', state:{is_authenticated: this.props.is_authenticated}}}>
 
-              <Card raised onClick={()=>{}}>
+              <Card raised as='div' onClick={()=>{}}>
                 <Card.Content>
                   <Header as='h2' textAlign='center' icon>
                     <Header.Content>

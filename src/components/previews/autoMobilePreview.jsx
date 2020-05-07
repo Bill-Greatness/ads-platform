@@ -36,7 +36,7 @@ class  PreviewAutoMobile extends React.Component{
                     </Grid.Column>    
                 <Grid.Row>
                     <Grid.Column tablet={8} computer={8} mobile={16}>
-                           <Table celled singleLine fixed>
+                           <Table celled singleLine fixed unstackable>
                             <Table.Header>
                                 <Table.Row>
                                     <Table.HeaderCell>Property</Table.HeaderCell>
@@ -76,7 +76,7 @@ class  PreviewAutoMobile extends React.Component{
                     
                     <Grid.Column tablet={8} computer={8} mobile={16}>
                           <Title icon='user' content='Owner Details' subheader='owner name here'/>
-                          <Table> {/* I'm not gonna use a table tho*/}
+                          <Table unstackable> {/* I'm not gonna use a table tho*/}
                             <Table.Header>
                                 <Table.Row>
                                     <Table.HeaderCell>Side 1</Table.HeaderCell>

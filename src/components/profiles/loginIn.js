@@ -1,18 +1,34 @@
 import React from 'react'
+import { graphql } from 'react-apollo'
+import { gql } from 'apollo-boost'
 import {Grid, Form, Button, Header} from 'semantic-ui-react'
 
+
+const loginQuery = gql`
+{
+  login(email:String,password:String){
+    email,
+    password
+  }
+}`
 class LoGin extends React.Component {
   constructor(){
     super()
     this.state = {
-      username:'',
+      email:'',
       password:''
     }
   }
   
   handleUserLogin = event => {
     event.preventDefault()
-    console.log(this.state)
+    console.log(this.props)
+   /* const {data, loading } = this.props.loginQuery({
+      variables:{
+        email:this.state.email,
+        password:this.state.password
+        }})*/
+    
     this.props.history.push({pathname:'/', state:{is_authenticated:true}})
   }
   render () {
@@ -24,9 +40,9 @@ class LoGin extends React.Component {
 
        <Form onSubmit={this.handleUserLogin}>
           <Form.Input
-          placholder='username'
-          onChange={(e) => this.setState({username: e.target.value})}
-          value={this.state.username}
+          placholder='Email'
+          onChange={(e) => this.setState({email: e.target.value})}
+          value={this.state.email}
           label='Username'
           required
           />
@@ -54,4 +70,4 @@ class LoGin extends React.Component {
   }
 }
 
-export default LoGin;
+export default graphql(loginQuery, {name:"loginQuery"})(LoGin);

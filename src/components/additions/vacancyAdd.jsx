@@ -1,7 +1,9 @@
 import React from 'react'
 import {Grid, Form, Button} from 'semantic-ui-react'
+import {graphql} from 'react-apollo'
+import {addNewVacancy} from '../../queries/queries'
 import Title from '../_components/TopHead'
-import {TopNavigation} from '../'
+import {TopNavigation} from '..'
 
 
 class  AddVacancy extends React.Component{
@@ -74,4 +76,4 @@ class  AddVacancy extends React.Component{
         }
 }
 
-export default AddVacancy
+export default graphql(addNewVacancy, {name:'addNewVacancy'}) (AddVacancy)

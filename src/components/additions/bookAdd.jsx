@@ -1,8 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {graphql} from 'react-apollo'
+import {addNewBook} from '../../queries/queries'
 import {Grid, Form, Button} from 'semantic-ui-react'
 import Title from '../_components/TopHead'
-import {TopNavigation} from '../'
+import {TopNavigation} from '..'
+
 class AddBook extends React.Component{
         constructor(){
             super()
@@ -10,17 +13,19 @@ class AddBook extends React.Component{
                 book_title:'',
                 book_price:'',
                 book_genre:'',
-                date_publish:'',
+                date_published:'',
                 name_of_author:'',
                 number_available:1,
                 book_description:''
             }
         }
         
-        postBook = event => {
-            event.preventDefault()
-            console.log(this.state)
-        }
+postBook = event => {
+    event.preventDefault()
+    this.props.addNewBook({
+        variables:this.state
+    })
+}
     render(){
         const GENRES = [
         { value:'romance', text:'Romance'},
@@ -71,7 +76,7 @@ class AddBook extends React.Component{
                          
                          
                         <Form.Input
-                         onChange={(e) => this.setState({date_publish:e.target.value})}
+                         onChange={(e) => this.setState({date_published:e.target.value})}
                          label='Date Publish'
                          type='date'
                          />
@@ -82,7 +87,7 @@ class AddBook extends React.Component{
                          <Form.Group widths='equal'>
                          <Form.Input
                          type='number'
-                         onChange={(e) => this.setState({number_available:e.target.value})}
+                         onChange={(e) => this.setState({number_available:parseInt(e.target.value)})}
                          min={1}
                          required
                          label='Number Available'
@@ -91,7 +96,7 @@ class AddBook extends React.Component{
                          <Form.Select
                          label='Genre'
                          required
-                        onChange={(e) => this.setState({book_genre:e.target.value})}
+                        onChange={(e, node) => this.setState({book_genre:node.value})}
                          placeholder='Select Genre'
                          options={GENRES}
                          />
@@ -122,4 +127,4 @@ class AddBook extends React.Component{
 AddBook.propTypes = {
     is_authenticated:PropTypes.bool.isRequired
 }
-export default AddBook
+export default graphql(addNewBook, {name:'addNewBook'})(AddBook)

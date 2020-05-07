@@ -2,7 +2,7 @@ import React from 'react'
 import {Grid, Card, List} from 'semantic-ui-react'
 import Title from '../_components/TopHead'
 import {Link} from 'react-router-dom'
-import {TopNavigation} from '../'
+import {TopNavigation} from '..'
 
 class  AddPost extends React.Component {
     constructor(){
@@ -23,7 +23,7 @@ class  AddPost extends React.Component {
                 <Grid centered padded>
                 
         
-                    <Grid.Column computer={4} tablet={4} mobile={16}>
+                    <Grid.Column computer={4} tablet={4} mobile={8}>
                     <Link to={{pathname:'/add-electronic-gadgets', state:{is_authenticated:this.props.location.state.is_authenticated}}}> 
                         <Card  onClick={()=>{}} raised >
                             <Card.Content>
@@ -45,7 +45,7 @@ class  AddPost extends React.Component {
                     </Grid.Column>
                     
                     
-                    <Grid.Column computer={4} tablet={4} mobile={16}>
+                    <Grid.Column computer={4} tablet={4} mobile={8}>
                     <Link to={{pathname:'/add-property', state:{is_authenticated:this.props.location.state.is_authenticated}}}>
                         <Card onClick={()=>{}} raised>
                             <Card.Content>

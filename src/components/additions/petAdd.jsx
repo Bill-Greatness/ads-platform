@@ -1,6 +1,8 @@
 import React from 'react'
 import {Grid, Form, Button} from 'semantic-ui-react'
-import {TopNavigation } from '../'
+import {addNewPet} from '../../queries/queries'
+import {graphql} from 'react-apollo'
+import {TopNavigation } from '..'
 import Title from '../_components/TopHead'
 
 class  AddPet extends React.Component {
@@ -15,7 +17,9 @@ class  AddPet extends React.Component {
     }
     postPet = event => {
         event.preventDefault()
-        console.log(this.state)
+        this.props.addNewPet({
+            variables:this.state
+        })
     }
     render(){
         return(
@@ -53,7 +57,7 @@ class  AddPet extends React.Component {
                                 
                                 <Form.Input
                                 required
-                                onChange={(e) => this.setState({number_available:e.target.value})}
+                                onChange={(e) => this.setState({number_available:parseInt(e.target.value)})}
                                 type='number'
                                 label='Number Available'
                                 />
@@ -75,4 +79,4 @@ class  AddPet extends React.Component {
     }
 }
 
-export default AddPet
+export default graphql(addNewPet, {name:'addNewPet'})(AddPet)

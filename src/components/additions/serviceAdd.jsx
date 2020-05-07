@@ -1,7 +1,9 @@
 import React from 'react'
 import {Grid, Form, Button} from 'semantic-ui-react'
+import {addNewService} from '../../queries/queries'
+import {graphql} from 'react-apollo'
 import PropTypes from 'prop-types'
-import {TopNavigation} from '../'
+import {TopNavigation} from '..'
 import Title from '../_components/TopHead'
 
 class AddService extends React.Component{
@@ -19,7 +21,9 @@ class AddService extends React.Component{
     
     postService = event => {
         event.preventDefault()
-        console.log(this.state)
+        this.props.addNewService({
+            variables:this.state
+        })
     }
     render(){
         const SERVICE_LIST = [{
@@ -103,4 +107,4 @@ AddService.propTypes = {
     is_authenticated:PropTypes.bool.isRequired
 }
 
-export default AddService
+export default graphql(addNewService,{name:'addNewService'})(AddService)

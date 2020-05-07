@@ -1,15 +1,19 @@
 import React from 'react'
+import {graphql} from 'react-apollo'
+
 import {Form, Button, Grid, Header} from 'semantic-ui-react'
+import {addNewUser} from '../../queries/queries'
+
 
 class SignUp extends React.Component {
     constructor(){
       super()
       this.state = {
-        username:'',
+        
         password:'',
         confirm_password:'',
         phone:'',
-        mail:'',
+        email:'',
         id_type:'',
         id_number:'',
         image:null,
@@ -23,7 +27,10 @@ class SignUp extends React.Component {
     
    handleUserAdd = event => {
       event.preventDefault()
-      console.log(this.state)
+      this.props.addNewUser({
+        variables:this.state
+      })
+     
     }
   render () {
     const id_options = [
@@ -51,8 +58,7 @@ class SignUp extends React.Component {
 
 
     ]
-    
-   
+       
     
     return(
       <Grid centered padded>
@@ -88,7 +94,7 @@ class SignUp extends React.Component {
 
         <Form.Select
           options={gender_options}
-          onChange={(e) => this.setState({gender:e.target})}
+          onChange={(e, node) => this.setState({gender:node.value})}
           placeholder='Gender'
           label='Gender'
           required
@@ -99,8 +105,7 @@ class SignUp extends React.Component {
         <Form.Group widths='equal'>
           <Form.Input
           placeholder='name@somedomain.com'
-          onChange={(e) => this.setState({mail:e.target.value})}
-
+          onChange={(e) => this.setState({email:e.target.value})}
           type='email'
           label='Email'
           required
@@ -119,7 +124,7 @@ class SignUp extends React.Component {
       <Form.Group widths='equal'>
         <Form.Select
         options={region_options}
-        onChange={(e)=>this.setState({region:e.target})}
+        onChange={(e, node)=>this.setState({region:node.value})}
         label='Region'
         placeholder='Region'
         required
@@ -136,7 +141,7 @@ class SignUp extends React.Component {
       <Form.Group widths='equal'>
         <Form.Select
           options={id_options}
-          onSelect={(e) => this.setState({id_type:e.target.value})}
+          onChange={(e, node) => this.setState({id_type:node.value})}
           placeholder='Choose ID'
           label='Choose ID'
           required
@@ -145,6 +150,7 @@ class SignUp extends React.Component {
         <Form.Input
             placeholder='ID Number'
             onChange={(e)=> this.setState({id_number:e.target.value})}
+            
             label='ID Number'
             required
             />
@@ -182,4 +188,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+export default graphql(addNewUser, {name:'addNewUser'})(SignUp);

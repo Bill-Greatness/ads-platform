@@ -1,18 +1,19 @@
 const graphql = require('graphql')
-const {GraphQLObjectType,GraphQLBoolean,GraphQLInt, GraphQLString, GraphQLID, GraphQLList, GraphQLSchema} = graphql
-
+const {GraphQLObjectType, GraphQLNonNull, GraphQLBoolean,GraphQLInt, GraphQLString, GraphQLID, GraphQLList, GraphQLSchema} = graphql
+const mongoose = require('mongoose');
 
  const typeUser = new GraphQLObjectType({
-  name:'Users',
+  name:'User',
   fields:{
         user_id: {type:GraphQLID},
         firstname: {type: GraphQLString},
         surname:{type:GraphQLString},
         date_of_birth:{type:GraphQLString},
         id_type:{type:GraphQLString},
+        image:{type:GraphQLString },
         id_number:{type:GraphQLString},
         gender:{type:GraphQLString},
-        location:{type:GraphQLString},
+        region:{type:GraphQLString},
         email:{type:GraphQLString},
         digital_addr:{type:GraphQLString},
         phone:{type:GraphQLString},
@@ -48,6 +49,7 @@ const {GraphQLObjectType,GraphQLBoolean,GraphQLInt, GraphQLString, GraphQLID, Gr
         item_price:{type:GraphQLString},
         number_in_stock: {type:GraphQLInt},
         gender_target:{type:GraphQLString},
+      available_colors:{type: GraphQLString},
         size_range:{type:GraphQLString},
         item_category:{type:GraphQLString},
         description:{type:GraphQLString},
@@ -100,7 +102,7 @@ const {GraphQLObjectType,GraphQLBoolean,GraphQLInt, GraphQLString, GraphQLID, Gr
         book_title:{type:GraphQLString},
         book_price:{type:GraphQLString},
         book_genre:{type:GraphQLString},
-        date_publish:{type:GraphQLString},
+        date_published:{type:GraphQLString},
         name_of_author:{type:GraphQLString},
         number_available:{type:GraphQLInt},
         book_description:{type:GraphQLString},
@@ -115,7 +117,7 @@ const {GraphQLObjectType,GraphQLBoolean,GraphQLInt, GraphQLString, GraphQLID, Gr
      name: 'Service',
      fields:{
         service_name:{type:GraphQLString},
-        serive_location:{type:GraphQLString},
+        service_location:{type:GraphQLString},
         service_tag:{type:GraphQLString},
         service_duration:{type:GraphQLString},
         service_price:{type:GraphQLString},
@@ -156,6 +158,13 @@ const {GraphQLObjectType,GraphQLBoolean,GraphQLInt, GraphQLString, GraphQLID, Gr
       return 'Some Random User Details Here'
      }
     },
+    login:{
+      type: typeUser,
+      args:{email:{type: GraphQLString}, password:{type: GraphQLString}},
+      resolve:(parent, args) => {
+       return "We will login in Here"
+      }
+    },
     devices:{
       type:GraphQLList(typeDevice),
       resolve:() => {
@@ -188,6 +197,7 @@ const {GraphQLObjectType,GraphQLBoolean,GraphQLInt, GraphQLString, GraphQLID, Gr
       return 'A list of Services Here'
      }
     },
+    
     service:{
      type:typeService,
      args:{id:{type:GraphQLID}},
@@ -216,6 +226,8 @@ const {GraphQLObjectType,GraphQLBoolean,GraphQLInt, GraphQLString, GraphQLID, Gr
      }
     },
     vacancy:{
+     type:typeVacancy,
+  
      args:{id:{type:GraphQLID}},
      resolve:(source,{id}) => {
       return 'Vacancies Here'
@@ -233,78 +245,122 @@ const {GraphQLObjectType,GraphQLBoolean,GraphQLInt, GraphQLString, GraphQLID, Gr
    addUser:{
     type: typeUser,
     args:{
-         state:{type: GraphQLObjectType}
-        },
-        resolve: (source, args) => {
-        return "Split Code to Install in DataBase."
+     firstname:{type: new GraphQLNonNull(GraphQLString)},
+     surname:{type:new GraphQLNonNull(GraphQLString)},
+     date_of_birth:{type:new GraphQLNonNull(GraphQLString)},
+     id_type:{type:new GraphQLNonNull(GraphQLString)},
+     //image:{type:new GraphQLNonNull(GraphQLString) },
+     id_number:{type:new GraphQLNonNull(GraphQLString)},
+     gender:{type:new GraphQLNonNull(GraphQLString)},
+     region:{type:new GraphQLNonNull(GraphQLString)},
+     email:{type:new GraphQLNonNull(GraphQLString)},
+     digital_addr:{type:new GraphQLNonNull(GraphQLString)},
+     phone:{type:new GraphQLNonNull(GraphQLString)},
+     password:{type:new GraphQLNonNull(GraphQLString)}
+
+     },
+     resolve: (source, args) => {
+        console.log(args);
        }
    },
    addDevice:{
     type: typeDevice,
     args:{
-     state: {type: GraphQLObjectType}
+      device_type:{type:new GraphQLNonNull(GraphQLString)},
+      device_name: {type:new GraphQLNonNull(GraphQLString)},
+      price: {type:new GraphQLNonNull(GraphQLString)},
+      and_or_ios_version:{type:new GraphQLNonNull(GraphQLString)},
+      description:{type:new GraphQLNonNull(GraphQLString)},
+      ram_size:{type:new GraphQLNonNull(GraphQLString)},
+      memory_size:{type:new GraphQLNonNull(GraphQLString)},
+      device_color:{type:new GraphQLNonNull(GraphQLString)},
+      // device_image:{type:new GraphQLNonNull(GraphQLString)}
     },
     resolve:(source, args) => {
-     return 'Code to Install in DataBase'
+     console.log(args)
     }
    },
    
    addService:{
     type: typeService,
     args:{
-     state:{type: GraphQLObjectType}
+      service_name:{type:new GraphQLNonNull(GraphQLString)},
+      service_location:{type:new GraphQLNonNull(GraphQLString)},
+      service_tag:{type:new GraphQLNonNull(GraphQLString)},
+      service_duration:{type:new GraphQLNonNull(GraphQLString)},
+      service_price:{type:new GraphQLNonNull(GraphQLString)},
+      service_description:{type:new GraphQLNonNull(GraphQLString)},
     },
     resolve:(source, args) => {
-     return 'Split Code to Install into Database'
+     console.log(args)
     }
    },
    
    addBook:{
     type: typeBook,
     args:{
-     state:{type: GraphQLObjectType}
+      book_title:{type:new GraphQLNonNull(GraphQLString)},
+      book_price:{type:new GraphQLNonNull(GraphQLString)},
+      book_genre:{type:new GraphQLNonNull(GraphQLString)},
+      date_published:{type:new GraphQLNonNull(GraphQLString)},
+      name_of_author:{type:new GraphQLNonNull(GraphQLString)},
+      number_available:{type: new GraphQLNonNull(GraphQLInt)},
+      book_description:{type:new GraphQLNonNull(GraphQLString)}
     },
     resolve:(source, args) => {
-     return 'Split Code to install into Database'
+     console.log(args)
     }
    },
    
    addVacancy:{
     type: typeVacancy,
-    args:{
-     state:{type:GraphQLObjectType}
-    },
     resolve:(source, args) => {
      return 'Split Code to Install into a Database'
     }
    },
    
    addPet:{
-    type: typePet,
+    type: typeAnimal,
     args:{
-     state:{type:GraphQLObjectType}
+      animal_name:{type:new GraphQLNonNull(GraphQLString)},
+      number_available:{type: new GraphQLNonNull(GraphQLInt)},
+      price:{type:new GraphQLNonNull(GraphQLString)},
+      description:{type:new GraphQLNonNull(GraphQLString)},
     },
     resolve:(source, args) => {
-     return 'Split code to install into a database!'
+     console.log(args)
     }
    },
    
    addFashion:{
     type: typeFashion,
     args:{
-     state:{type: GraphQLObjectType}
+      item_name:{type:new GraphQLNonNull(GraphQLString)},
+      item_price:{type:new GraphQLNonNull(GraphQLString)},
+      number_in_stock: {type:new GraphQLNonNull(GraphQLInt)},
+      available_colors:{type: new GraphQLNonNull(GraphQLString)},
+      gender_target:{type:new GraphQLNonNull(GraphQLString)},
+      size_range:{type:new GraphQLNonNull(GraphQLString)},
+      item_category:{type:new GraphQLNonNull(GraphQLString)},
+      description:{type:new GraphQLNonNull(GraphQLString)},
+      item_tag:{type:new GraphQLNonNull(GraphQLString)},
     },
     resolve:(source, args)  => {
-     return 'Split Code to install into database'
+      console.log(args)
     }
    },
    addProperty:{
     type: typeProperty,
     args:{
-     state:{type:GraphQLObjectType}
+      property_type:{type:new GraphQLNonNull(GraphQLString)},
+      property_name:{type:new GraphQLNonNull(GraphQLString)},
+      property_location:{type:new GraphQLNonNull(GraphQLString)},
+      property_price:{type:new GraphQLNonNull(GraphQLString)},
+      property_registered:{type:new GraphQLNonNull(GraphQLBoolean)},
+      property_description:{type:new GraphQLNonNull(GraphQLString)},
     },
-    resolve:(source, args){
-     return 'Split Code to install into a database'
+    resolve:(source, args) => {
+     console.log(args)
     }
    }
    

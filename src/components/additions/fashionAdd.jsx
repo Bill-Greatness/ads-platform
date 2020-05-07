@@ -1,5 +1,7 @@
 import React from 'react'
 import {Grid, Form, Button} from 'semantic-ui-react'
+import {addNewFashion} from '../../queries/queries'
+import {graphql} from 'react-apollo'
 import Title from '../_components/TopHead'
 class    AddFashion extends React.Component {
     constructor(){
@@ -14,17 +16,21 @@ class    AddFashion extends React.Component {
         item_category:'',
         description:'',
         item_tag:'',
+        _me: 'hello'
         }
     }
     postFashion = event =>{
         event.preventDefault()
-        console.log(this.state)
+        this.props.addNewFashion({
+            variables:this.state
+        })
     }
     render(){
         const FASHION_CATEGORIES = [
             {text:'Clothings', value:'clothings', key:1},
             {text:'Watches', value:'watches',key:2},
-            {text:'Shoes', value:'shoes', key:3}
+            {text:'Shoes', value:'shoes', key:3},
+            {text:'Creams and Pomades', value:'creams_and_pomades', key:4}
         ]
         return(
             <Grid padded>
@@ -52,7 +58,7 @@ class    AddFashion extends React.Component {
                                 <Form.Input
                                 required
                                 type='number'
-                                onChange={(e) => this.setState({number_in_stock:e.target.value})}
+                                onChange={(e) => this.setState({number_in_stock:parseInt(e.target.value)})}
                                 min='2'
                                 label='Number in Stock'
                                 placeholder='Item name'
@@ -125,4 +131,4 @@ class    AddFashion extends React.Component {
     }
 }
 
-export default AddFashion
+export default graphql(addNewFashion, {name:'addNewFashion'}) (AddFashion)
