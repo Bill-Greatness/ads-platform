@@ -1,5 +1,5 @@
 import React from 'react'
-//import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import {Grid, Segment, Divider, Icon} from 'semantic-ui-react'
 import Title from '../_components/TopHead'
 import {TopNavigation} from '../'
@@ -10,6 +10,10 @@ class   PreviewDevice extends React.Component{
         this.state = {
             
         }
+    }
+
+    componentDidMount(){
+        console.log(this.props.match.params._device_id)
     }
     
     render(){
@@ -61,5 +65,7 @@ class   PreviewDevice extends React.Component{
         )
 }
 }
+
+
 
 export default PreviewDevice

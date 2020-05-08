@@ -46,7 +46,7 @@ class App extends React.Component {
                   <Route path='/categories/books-and-journals' component={Books} />
                   
                   <Route path='/automobiles/1' component={PreviewAutoMobile} />
-                  <Route path='/electronic-devices/1' component={PreviewDevice} />
+                  <Route path='/electronic-devices/:_device_id'  component={PreviewDevice} />
                   <Route path='/fashion-preview/1' component={PreviewFashion} />
                   <Route path='/service-preview/1' component={PreviewService} />
                   <Route path='/pet-preview/1' component={PreviewPet} />

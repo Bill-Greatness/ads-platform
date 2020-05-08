@@ -1,5 +1,5 @@
 import React from 'react'
-import {Grid, Segment, Table} from 'semantic-ui-react'
+import {Grid, Segment, Table, Icon, Rating} from 'semantic-ui-react'
 import {TopNavigation } from '../'
 import Title from '../_components/TopHead'
 
@@ -65,8 +65,8 @@ class  PreviewAutoMobile extends React.Component{
                                     <Table.Cell>N/A</Table.Cell>
                                 </Table.Row>
                                 <Table.Row>
-                                    <Table.Cell>Another Field</Table.Cell>
-                                    <Table.Cell>N/A</Table.Cell>
+                                    <Table.Cell colSpan={2}><Icon name='delete' color='red'/> Delete Product</Table.Cell>
+                                    
                                 </Table.Row>
                                 
                             </Table.Body>
@@ -75,7 +75,7 @@ class  PreviewAutoMobile extends React.Component{
                     </Grid.Column>
                     
                     <Grid.Column tablet={8} computer={8} mobile={16}>
-                          <Title icon='user' content='Owner Details' subheader='owner name here'/>
+                          <Title icon='user' content='Owner Details' subheader={<>'<br/>' <Rating defaultRating={3} maxRating={5} color='blue'/></>}/>
                           <Table unstackable> {/* I'm not gonna use a table tho*/}
                             <Table.Header>
                                 <Table.Row>
@@ -103,10 +103,6 @@ class  PreviewAutoMobile extends React.Component{
                                 <Table.Row>
                                     <Table.Cell>Date Joined</Table.Cell>
                                     <Table.Cell>Some Date</Table.Cell>
-                                </Table.Row>
-                                <Table.Row>
-                                    <Table.Cell>Ratings</Table.Cell>
-                                    <Table.Cell>S5 Stars</Table.Cell>
                                 </Table.Row>
                             </Table.Body>
                           </Table>

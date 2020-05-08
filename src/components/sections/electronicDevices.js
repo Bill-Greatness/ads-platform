@@ -14,24 +14,28 @@ class ElectronicDevices extends React.Component {
     }
   }
   render () {
+  
+
       return(
         <>
         <TopNavigation is_authenticated={this.props.location.state !== undefined ? this.props.location.state.is_authenticated : false}/>
         <Grid padded>
 
           <Title icon='tv' content='Tv, Phones, Laptops and more' subheader='Arsenal Of Electronic Devices' />
-          <Grid.Column computer={16}>
-          <Divider horizontal>Tv Sets </Divider>
-          </Grid.Column>
+          
           <Grid.Column computer={2} only='computer'>
             <PandL />
+          </Grid.Column>
+          <Grid.Column computer={14} tablet={14} mobile={16}>
+          <Grid.Column computer={16} tablet={16} mobile={16}>
+          <Divider horizontal>Tv Sets </Divider>
           </Grid.Column>
           
           <Grid.Column computer={14} tablet={14} mobile={16}>
           <Grid >
           {[1,2,3,4,5,6,7,8].map(dvc => (
             <Grid.Column computer={4} tablet={4} mobile={8} key={dvc}>
-            <Link to={{pathname:'/electronic-devices/1', state:{is_authenticated:this.props.location.state !== undefined ? this.props.location.state.is_authenticated : false}}}>
+            <Link to={{pathname:'/electronic-devices/2323', state:{is_authenticated:this.props.location.state !== undefined ? this.props.location.state.is_authenticated : false}}}>
               <Card raised onClick={()=>{}} style={{minHeight:150}}>
                 <Card.Header textAlign='right'>
                     <Label size='tiny' tag  color='teal'>
@@ -94,6 +98,7 @@ class ElectronicDevices extends React.Component {
             </Grid.Column>
           ))}
           </Grid>
+          </Grid.Column>
           </Grid.Column>
         </Grid>
         </>

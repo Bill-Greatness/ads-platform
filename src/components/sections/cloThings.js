@@ -15,15 +15,17 @@ class Clothings extends React.Component {
           <Grid padded>
               <Title icon='user' content='Clothings and Jewerries' subheader='Attires, Shoes, Watches and more'/>
               
+              <Grid.Column computer={2} only='computer'>
+                <PandL />
+              </Grid.Column>
+              <Grid.Column computer={14} mobile={16} tablet={14}>
               <Grid.Column computer={16} mobile={16} tablet={16}>
                 <Divider horizontal>Clothings </Divider>
               </Grid.Column>
               <Grid>
-              <Grid.Column computer={2} only='computer'>
-             <PandL />
-          </Grid.Column>
-              <Grid.Column computer={14} tablet={14} mobile={16}>
-              <Grid padded>
+              
+              <Grid.Column computer={16} tablet={16} mobile={16}>
+              <Grid>
                 {[1,2,3,4,5,6,7,8].map(itm => (
                   <Grid.Column computer={4} mobile={8} tablet={4} key={itm}>
                   <Link to={{pathname:'/fashion-preview/1', state:{is_authenticated:this.props.location.state.is_authenticated}}}>
@@ -43,7 +45,7 @@ class Clothings extends React.Component {
               <Grid.Column computer={16} mobile={16} tablet={16}>
                 <Divider horizontal>Watches </Divider>
               </Grid.Column>
-              <Grid padded>
+              <Grid >
                 {[1,2,3,4,5,6,7,8].map(itm => (
                   <Grid.Column computer={4} mobile={8} tablet={4} key={itm}>
                   <Card as='a' href='/fashion-preview/1'  raised style={{minHeight:150}} onClick={()=>{}}>
@@ -62,7 +64,7 @@ class Clothings extends React.Component {
               <Grid.Column computer={16} mobile={16} tablet={16}>
                 <Divider horizontal>Shoes </Divider>
               </Grid.Column>
-              <Grid padded>
+              <Grid>
                 {[1,2,3,4,5,6,7,8].map(itm => (
                   <Grid.Column computer={4} mobile={8} tablet={4} key={itm}>
                   <Card as='a' href='/fashion-preview/1'  raised style={{minHeight:150}} onClick={()=>{}}>
@@ -78,7 +80,7 @@ class Clothings extends React.Component {
               </Grid>
               </Grid.Column>
               </Grid>
-              
+              </Grid.Column>    
           </Grid>
           </>
       );

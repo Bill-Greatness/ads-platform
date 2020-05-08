@@ -1,15 +1,16 @@
 import React from 'react'
-import {Form, List, Divider, Radio} from 'semantic-ui-react'
+import { List, Divider, Radio, Form} from 'semantic-ui-react'
 
 class PandL extends React.Component{
 
     render(){
+      console.log(<Radio/>)
         return(
             <>
             <Divider horizontal>Locations</Divider>
-            <br/>
+          
               <List divided relaxed>
-                <List.Item as='a'>Takoradi</List.Item>
+                <List.Item as='a' onClick={(e)=> alert('Sentiment')}>Takoradi</List.Item>
                 <List.Item as='a'>Kumasi</List.Item>
                 <List.Item as='a'>Tema</List.Item>
                 <List.Item as='a'>Accra</List.Item>
@@ -18,14 +19,22 @@ class PandL extends React.Component{
               <br/>
               <Divider horizontal>Price Range</Divider>
               <br/>
-              <Form>
-        <Form.Field>
+       
           {/*Price Tag Here*/}
-        </Form.Field>
+      <Form size='tiny'>
         <Form.Field>
         <Radio
-        size='mini'
-            label='1000 - Above'
+            label='1000+ '
+            name='radioGroup'
+            value='this'
+          
+          />
+          </Form.Field>
+         
+          <Form.Field>
+          <Radio
+          
+            label='500 - 1000'
             name='radioGroup'
             value='this'
           
@@ -33,7 +42,8 @@ class PandL extends React.Component{
           </Form.Field>
           <Form.Field>
           <Radio
-            label='500-1000'
+          size='mini'
+            label='100 - 499'
             name='radioGroup'
             value='this'
           
@@ -41,15 +51,7 @@ class PandL extends React.Component{
           </Form.Field>
           <Form.Field>
           <Radio
-            label='100-499'
-            name='radioGroup'
-            value='this'
-          
-          />
-          </Form.Field>
-          <Form.Field>
-          <Radio
-            label='50-399'
+            label='50 - 399'
             name='radioGroup'
             value='this'
           
@@ -57,13 +59,14 @@ class PandL extends React.Component{
         </Form.Field>
         <Form.Field>
           <Radio
+          size='mini'
             label='All'
             name='radioGroup'
             value='that'
           
           />
         </Form.Field>
-      </Form>
+        </Form>
             </>
         )
     }

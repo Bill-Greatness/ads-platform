@@ -1,5 +1,5 @@
 import React from 'react'
-import {Grid, Card, Label, Image} from 'semantic-ui-react'
+import {Grid, Card, Label, Image, Divider} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import pets from '../../media/animals-and-pets.png'
 import Title from '../_components/TopHead'
@@ -18,7 +18,10 @@ class Pets extends React.Component {
             <Grid.Column computer='2' only='computer'>
             <PandL />
             </Grid.Column>
-            <Grid.Column computer={14} tablet={16} mobile={16}>
+            <Grid.Column computer={14} tablet={14} mobile={16}>
+              <Grid.Column computer={16} mobile={16} tablet={16}>
+                <Divider horizontal>Pets</Divider>
+              </Grid.Column>
             <Grid padded>
               {[1,2,3,4,5].map(pet => (
                 <Grid.Column computer={4} tablet={4} mobile={8}>
