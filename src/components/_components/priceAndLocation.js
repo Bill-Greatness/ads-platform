@@ -10,13 +10,10 @@ class PandL extends React.Component{
             <br/>
               <List divided relaxed>
                 <List.Item as='a'>Takoradi</List.Item>
-                <List.Item>Kumasi</List.Item>
-                <List.Item>Team</List.Item>
-                <List.Item>Accra</List.Item>
-                <List.Item>Tamale</List.Item>
-                <List.Item>Ho</List.Item>
-                <List.Item>Kasoa</List.Item>
-                <List.Item>Koforidua</List.Item>
+                <List.Item as='a'>Kumasi</List.Item>
+                <List.Item as='a'>Tema</List.Item>
+                <List.Item as='a'>Accra</List.Item>
+                <List.Item as='a'>Koforidua</List.Item>
               </List>
               <br/>
               <Divider horizontal>Price Range</Divider>
@@ -27,6 +24,7 @@ class PandL extends React.Component{
         </Form.Field>
         <Form.Field>
         <Radio
+        size='mini'
             label='1000 - Above'
             name='radioGroup'
             value='this'

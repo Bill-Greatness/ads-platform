@@ -35,7 +35,7 @@ class   AddProperty extends React.Component{
             ]
         return(
             <>
-            {this.props.location.state === undefined ?
+            {this.props.location.state === undefined || this.props.location.state.is_authenticated === false ?
             this.props.history.push({pathname:'/sign-in',state:{is_authenticated:false} }):
             <>
             <TopNavigation is_authenticated={this.props.location.state.is_authenticated} /> 
@@ -46,6 +46,15 @@ class   AddProperty extends React.Component{
                         <Grid.Column computer={12} tablet={12} mobile={16}>
                             <Form onSubmit={this.postProperty}>
                             <Form.Group widths='equal'>
+
+                            <Form.Select
+                                        required
+                                        placeholder='Property Type'
+                                        onChange={(e, node) => this.setState({property_type:node.value})}
+                                        label='Property Type'
+                                        options={PROPERTY_TYPES}
+                                        />
+
                                 <Form.Input
                                     label='Property Name'
                                     onChange={(e) => this.setState({property_name:e.target.value})}
@@ -54,12 +63,7 @@ class   AddProperty extends React.Component{
                                     />
                                     
                                 
-                                <Form.Input
-                                required
-                                label='Poperty Location'
-                                onChange={(e) => this.setState({property_location:e.target.value})}
-                                placeholder='Property Location'
-                                />
+                                
                                 </Form.Group>
                                 
                                 <Form.Group widths='equal'>
@@ -83,13 +87,12 @@ class   AddProperty extends React.Component{
                                 </Form.Group>
                                 
                                 <Form.Group widths='equal'>
-                                     <Form.Select
-                                        required
-                                        placeholder='Property Type'
-                                        onChange={(e, node) => this.setState({property_type:node.value})}
-                                        label='Property Type'
-                                        options={PROPERTY_TYPES}
-                                        />
+                                <Form.Input
+                                    required
+                                    label='Poperty Location'
+                                    onChange={(e) => this.setState({property_location:e.target.value})}
+                                    placeholder='Property Location'
+                                />
                                         
                                         <Form.Input
                                         required

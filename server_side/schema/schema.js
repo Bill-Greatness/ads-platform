@@ -171,6 +171,12 @@ const mongoose = require('mongoose');
        return 'A List Of Devices Here'
       }
     },
+    get_phones:{
+      type: GraphQLList(typeDevice),
+      resolve:() => {
+        return 'Get All Phones Queries'
+      }
+    },
     device:{
      type:typeDevice,
      args:{id:{type:GraphQLID}},

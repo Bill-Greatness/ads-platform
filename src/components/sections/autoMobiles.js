@@ -12,7 +12,7 @@ class AutoMobiles extends React.Component {
         <TopNavigation is_authenticated={this.props.location.state.is_authenticated}/>
         <Grid padded>
 
-              <Title icon='car' content='Cars and Automobiles' subheader='Arsenal for Vehicles' />
+              <Title icon='car' content='Cars, Lands and Properties' subheader='Your Side for great properties' />
               <Grid.Column computer={16} tablet={16} mobile={16}>
                 <Divider horizontal>Cars and Automobile </Divider>
               </Grid.Column>

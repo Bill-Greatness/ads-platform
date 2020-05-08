@@ -1,5 +1,7 @@
 import {gql} from 'apollo-boost'
 
+
+/******************************** Mutation Queries ***************************************/
 const addNewUser = gql`
   mutation addNewClient($firstname:String!, $surname:String!, $date_of_birth:String!, $gender:String!, $id_type:String!, $id_number:String!, $password:String!, $phone:String!, $email:String!, $digital_addr:String!, $region:String!) {
     addUser(firstname:$firstname, surname:$surname, date_of_birth:$date_of_birth, gender:$gender, id_type:$id_type,id_number:$id_number, password:$password,phone:$phone, email:$email, digital_addr:$digital_addr, region:$region){
@@ -73,6 +75,23 @@ const addNewVacancy = gql`
       vacn_duration
     }
   }
+`
+
+/*************************   Read Queries      ************************/
+
+const getAllPhones = gql`
+{
+  get_phones{
+    device_name,
+    price,
+    ram_size,
+    memory_size,
+    device_color,
+    posted_by,
+    image,
+    description
+  }
+}
 `
 
 export {addNewUser, addNewBook, addNewDevice, addNewFashion, addNewPet, addNewProperty, addNewService,addNewVacancy}

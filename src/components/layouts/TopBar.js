@@ -23,7 +23,7 @@ class TopNavigation extends React.Component {
             <Menu fixed={'top'} pointing borderless>
             <Link to={{pathname:'/', state:{is_authenticated: this.props.is_authenticated}}}>
 
-              <Menu.Item name='Logician Ads' as='h4'/>
+              <Menu.Item name='Logicians' as='h4'/>
               </Link>
 
               <Menu.Menu position='right' className='hide-on-mobile'>
@@ -122,6 +122,10 @@ class TopNavigation extends React.Component {
 
 TopNavigation.propTypes = {
   is_authenticated:PropTypes.bool.isRequired
+}
+
+TopNavigation.defaultProps = {
+  is_authenticated: false
 }
 
 export default TopNavigation;
