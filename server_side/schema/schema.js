@@ -30,6 +30,7 @@ const mongoose = require('mongoose');
         and_or_ios_version:{type:GraphQLString},
         description:{type:GraphQLString},
         ram_size:{type:GraphQLString},
+        image:{type:GraphQLString},
         memory_size:{type:GraphQLString},
         device_color:{type:GraphQLString},
         device_image:{type:GraphQLString},

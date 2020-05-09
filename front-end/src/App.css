@@ -1,0 +1,22 @@
+
+body{
+  margin:0;
+  padding:0;
+  background-color: #fff;
+}
+
+
+
+.hide-on-desktop{
+  display: none !important;
+}
+
+@media screen and (max-width:550px){
+  .hide-on-mobile{
+    display:none !important;
+  }
+  
+  .hide-on-desktop{
+    display: flex !important;
+  }
+}
