@@ -1,5 +1,7 @@
 import React from 'react'
 import {Grid, Form, Button} from 'semantic-ui-react'
+import {TopNavigation} from '../'
+import Tips from '../_components/tiPs'
 import {addNewFashion} from '../../queries/queries'
 import {graphql} from 'react-apollo'
 import Title from '../_components/TopHead'
@@ -33,6 +35,11 @@ class    AddFashion extends React.Component {
             {text:'Creams and Pomades', value:'creams_and_pomades', key:4}
         ]
         return(
+            <>
+            {this.props.location.state === undefined || this.props.location.state.is_authenticated === false ?
+            this.props.history.push({pathname:'/sign-in', state:{is_authenticated:false}}) :
+            <> 
+            <TopNavigation is_authenticated={this.props.location.state.is_authenticated} /> 
             <Grid padded>
                 <Title icon='user' content='Post Fashion Item on Market' subheader='Change a customers outfit' />
                 <Grid.Column computer={16} mobile={16} tablet={16}>
@@ -40,6 +47,16 @@ class    AddFashion extends React.Component {
                     <Grid.Column computer={10} tablet={12} mobile={16}>
                         <Form onSubmit={this.postFashion}>
                             <Form.Group widths='equal'>
+                            <Form.Select
+                                required
+                                label='Item Category'
+                                onChange={(e, node) => this.setState({item_category:node.value})}
+                                options={FASHION_CATEGORIES}
+                                placeholder='Select Categories'
+                                />
+                                
+                                
+
                                 <Form.Input
                                 required
                                 onChange={(e) => this.setState({item_name:e.target.value})}
@@ -103,15 +120,7 @@ class    AddFashion extends React.Component {
                                 accept='image/*'
                                 multiple={true}
                                 />
-                                <Form.Select
-                                required
-                                label='Item Category'
-                                onChange={(e, node) => this.setState({item_category:node.value})}
-                                options={FASHION_CATEGORIES}
-                                placeholder='Select Categories'
-                                />
-                                
-                                
+                               
                             </Form.Group>
                             
                             <Form.TextArea
@@ -124,9 +133,15 @@ class    AddFashion extends React.Component {
                                 <Button type='submit' circular> Advertise </Button>
                         </Form>
                         </Grid.Column>
+                    
+                    <Grid.Column computer={4} tablet={4} only='computer and tablet'>
+                        <Tips />
+                    </Grid.Column>
                     </Grid>
                 </Grid.Column>
             </Grid>
+            </>}
+            </>
         )
     }
 }

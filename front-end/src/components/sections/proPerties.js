@@ -1,19 +1,21 @@
 import React from 'react'
 import {Grid, Item, Segment, Label, Divider, Card, Image} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
+import {graphql} from 'react-apollo'
+import {allProperties} from '../../queries/queries'
 import PandL from '../_components/priceAndLocation'
 import automobile from '../../media/auto-mobile.png'
 import Title from '../_components/TopHead'
 import {TopNavigation} from '..'
 
-class AutoMobiles extends React.Component {
+class Properties extends React.Component {
   render () {
       return(
         <>
         <TopNavigation is_authenticated={this.props.location.state.is_authenticated}/>
         <Grid padded>
               <Title icon='car' content='Cars, Lands and Properties' subheader='Your Side for great properties' />
-              <Grid.Column computer={2} tablet={2}>
+              <Grid.Column computer={2} tablet={2} only='computer'>
                 <PandL />
               </Grid.Column>
               <Grid.Column computer={14} tablet={14} mobile={16}>
@@ -90,4 +92,4 @@ class AutoMobiles extends React.Component {
   }
 }
 
-export default AutoMobiles;
+export default graphql(allProperties,{name:'allProperties'})(Properties);

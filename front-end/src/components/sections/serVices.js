@@ -1,5 +1,7 @@
 import React from 'react'
 import {Grid, Item, Segment} from 'semantic-ui-react'
+import {graphql} from 'react-apollo'
+import {allServices} from '../../queries/queries'
 import {Link} from 'react-router-dom'
 import Title from '../_components/TopHead'
 import services from '../../media/services.png'
@@ -44,4 +46,4 @@ class Services extends React.Component {
   }
 }
 
-export default Services;
+export default graphql(allServices, {name:'allServices'})(Services);

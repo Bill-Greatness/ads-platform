@@ -1,5 +1,6 @@
 import React from 'react'
 import {Grid, Form, Button} from 'semantic-ui-react'
+import Tips from '../_components/tiPs'
 import {addNewPet} from '../../queries/queries'
 import {graphql} from 'react-apollo'
 import {TopNavigation } from '..'
@@ -17,9 +18,14 @@ class  AddPet extends React.Component {
     }
     postPet = event => {
         event.preventDefault()
-        this.props.addNewPet({
-            variables:this.state
-        })
+        try {
+            this.props.addNewPet({
+                variables:this.state
+            })
+        } catch (err) {
+            console.log(err)
+        }
+        
     }
     render(){
         return(
@@ -34,6 +40,7 @@ class  AddPet extends React.Component {
                     <Grid padded centered>
                         <Grid.Column computer={10} mobile={16} tablet={10} >
                             <Form onSubmit={this.postPet}>
+                                <Form.Group widths='equal'>
                                 <Form.Input
                                 required
                                 onChange={(e) => this.setState({animal_name:e.target.value})}
@@ -47,7 +54,10 @@ class  AddPet extends React.Component {
                                 placeholder='0.00$'
                                 label='Price'
                                 />
+
+                                </Form.Group>
                                 
+                                <Form.Group>
                                 <Form.Input
                                 required
                                 onChange={(e) => this.setState({animal_image:e.target.files[0]})}
@@ -61,6 +71,7 @@ class  AddPet extends React.Component {
                                 type='number'
                                 label='Number Available'
                                 />
+                                </Form.Group>
                                 <Form.TextArea
                                 onChange={(e) => this.setState({description:e.target.value})}
                                     required
@@ -70,6 +81,10 @@ class  AddPet extends React.Component {
                                 <Button circular > Advertise </Button>
                             </Form>
                         </Grid.Column>
+                  
+                    <Grid.Column computer={4} tablet={4} only='computer and tablet'>
+                        <Tips />
+                    </Grid.Column>
                     </Grid>
                 </Grid.Column>
             </Grid>

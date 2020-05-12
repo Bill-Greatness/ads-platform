@@ -1,5 +1,7 @@
 import React from 'react'
 import {Grid, Card, Label, Image, Divider} from 'semantic-ui-react'
+import {graphql} from 'react-apollo'
+import {allPets} from '../../queries/queries'
 import {Link} from 'react-router-dom'
 import pets from '../../media/animals-and-pets.png'
 import Title from '../_components/TopHead'
@@ -45,4 +47,4 @@ class Pets extends React.Component {
   }
 }
 
-export default Pets;
+export default graphql(allPets, {name:'allPets'})(Pets);

@@ -1,7 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import logo from '../../media/logicians.jpg'
 import SideBar from './sideBar'
-import {Menu, Dropdown, Search, TransitionablePortal} from 'semantic-ui-react'
+import {Menu, Dropdown, Search, TransitionablePortal, Image} from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 
 class TopNavigation extends React.Component {
@@ -23,7 +24,9 @@ class TopNavigation extends React.Component {
             <Menu fixed={'top'} pointing borderless>
             <Link to={{pathname:'/', state:{is_authenticated: this.props.is_authenticated}}}>
 
-              <Menu.Item name='Logicians' as='h4'/>
+              
+                <Image avatar src={logo} />
+              
               </Link>
 
               <Menu.Menu position='right' className='hide-on-mobile'>

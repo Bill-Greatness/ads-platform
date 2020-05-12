@@ -1,6 +1,7 @@
 import React from 'react'
+import testImage from '../../media/phones-and-computers.png'
 // import PropTypes from 'prop-types'
-import {Grid, Segment, Divider, Icon} from 'semantic-ui-react'
+import {Grid, Segment, Divider, Icon, Item} from 'semantic-ui-react'
 import Title from '../_components/TopHead'
 import {TopNavigation} from '../'
 
@@ -27,21 +28,25 @@ class   PreviewDevice extends React.Component{
                 <Title icon='tv' content='Gadget Name' subheader='Some Sub Heading'/>
                 <Grid.Column computer={16} mobile={16} tablet={16}>
                     <Grid padded>
-                        <Grid.Row>
-                            <Grid.Column computer={8} tablet={8} mobile={16}>
-                            <Segment placeholder>
-                                    <h3> Device Images Here </h3>
-                                    
-                            </Segment>
+                            <Grid.Column computer={16} tablet={16} mobile={16}>
+                            <Item.Group>
+                                <Item>
+                                <Item.Image src={testImage} size='small'/>
+                                <Item.Content>
+                                    <Item.Header>Device Name Here</Item.Header>
+                                    <Item.Description>Irure ut incididunt
+                                         consequat id ea dolore consequat Lorem. Consectetur 
+                                         id est commodo reprehenderit cupidatat ea qui reprehenderit.
+                                         Anim eu sunt labore eiusmod excepteur labore id fugiat id 
+                                         voluptate amet aliquip ex commodo. Veniam ex aliquip Lorem 
+                                         voluptate id exercitation sunt mollit amet. Do aliqua amet
+                                          aute duis sint esse non adipisicing cupidatat cupidatat. 
+                                          Fugiat ad ex aliquip dolor duis laborum consectetur est
+                                           aliquip sint Lorem ea mollit laborum.</Item.Description>
+                                </Item.Content>
+                                </Item>
+                            </Item.Group>
                             </Grid.Column>
-                            
-                            <Grid.Column computer={8} tablet={8} mobile={16}>
-                            <Segment placeholder>
-                                <h3> Device Descriptions Here </h3>
-                                
-                            </Segment>
-                            </Grid.Column>
-                        </Grid.Row>
                  {/* <Divider vertical children={<Icon name='arrow right' />} /> */}
 
                     </Grid>

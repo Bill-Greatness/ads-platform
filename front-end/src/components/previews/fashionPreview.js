@@ -1,6 +1,6 @@
 import React from 'react'
 //import PropTypes from 'prop-types'
-import {Grid, Segment, Divider, Icon, Table} from 'semantic-ui-react'
+import {Grid, Segment, Divider, Icon, Table, Item} from 'semantic-ui-react'
 import {TopNavigation} from '../'
 import Title from '../_components/TopHead'
 
@@ -24,60 +24,15 @@ class   PreviewFashion extends React.Component{
                 <Title icon='tv' content='Gadget Name' subheader='Some Sub Heading'/>
                 <Grid.Column computer={16} mobile={16} tablet={16}>
                     <Grid padded>
-                        <Grid.Row>
-                            <Grid.Column computer={8} tablet={8} mobile={16}>
-                            <Segment placeholder>
-                                    <h3> Fashion Images Here </h3>
-                                    
-                            </Segment>
-                            </Grid.Column>
-                            
-                            <Grid.Column computer={8} tablet={8} mobile={16}>
-                            
-                                <Table unstackable>
-                                    <Table.Header>
-                                        <Table.Row>
-                                            <Table.HeaderCell/>
-                                            <Table.HeaderCell/>
-                                        </Table.Row>
-                                    </Table.Header>
-                                    <Table.Body>
-                                    <Table.Row>
-                                        <Table.Cell>Side </Table.Cell>
-                                         <Table.Cell>Side</Table.Cell>
-
-                                    </Table.Row>
-                                    
-                                    <Table.Row>
-                                        <Table.Cell>Side </Table.Cell>
-                                         <Table.Cell>Side</Table.Cell>
-
-                                    </Table.Row>
-                                    
-                                    <Table.Row>
-                                        <Table.Cell>Side </Table.Cell>
-                                         <Table.Cell>Side</Table.Cell>
-
-                                    </Table.Row>
-                                    
-                                    <Table.Row>
-                                        <Table.Cell>Side </Table.Cell>
-                                         <Table.Cell>Side</Table.Cell>
-
-                                    </Table.Row>
-                                    
-                                    <Table.Row>
-                                        <Table.Cell>Side </Table.Cell>
-                                         <Table.Cell>Side</Table.Cell>
-
-                                    </Table.Row>
-                                    </Table.Body>
-                                </Table>
-                                
-                         
-                            </Grid.Column>
-                        </Grid.Row>
-                 <Divider vertical children={<Icon name='arrow right' />} />
+                       <Item.Group>
+                           <Item>
+                               <Item.Image src='../media/logicians.jpg'/>
+                               <Item.Content>
+                                   <Item.Header content='Item Name' />
+                                   <Item.Description content='Excepteur pariatur sunt incididunt nostrud laborum irure laboris non labore eiusmod amet officia et. Sit occaecat sint excepteur ut nulla sunt deserunt. Eiusmod adipisicing cupidatat ipsum amet do nisi proident reprehenderit est et. Labore reprehenderit aliquip cillum minim velit ut laboris laboris consequat in ea ad ullamco.'/>
+                               </Item.Content>
+                           </Item>
+                       </Item.Group>
 
                     </Grid>
                 </Grid.Column>

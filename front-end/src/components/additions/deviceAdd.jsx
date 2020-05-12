@@ -1,5 +1,6 @@
 import React from 'react'
-import {Form, Grid, Button, Header, List } from 'semantic-ui-react'
+import Tips from '../_components/tiPs'
+import {Form, Grid, Button } from 'semantic-ui-react'
 import {graphql} from 'react-apollo'
 import {addNewDevice} from '../../queries/queries'
 import Title from '../_components/TopHead'
@@ -59,8 +60,8 @@ class  AddDevice extends React.Component {
             <TopNavigation is_authenticated={this.props.location.state.is_authenticated} />
             <Grid padded>
                 <Title content='Advertise Device on Market' icon='add' subheader='Reach Out to Customers!' />
-                <Grid.Column computer={12} mobile={16} tablet={12}>
-                <Grid centered padded>
+                <Grid.Column computer={16} mobile={16} tablet={12}>
+                <Grid centered>
                 <Grid.Column computer={12} mobile={16} tablet={10}>
                     <Form onSubmit={this.postDevice} encType='multi-part/form-data'>
                     <Form.Group widths='equal'>
@@ -199,19 +200,12 @@ class  AddDevice extends React.Component {
                     <br/>
                     <br/>
                     </Grid.Column>
+                    <Grid.Column computer={4} tablet={4} only='computer'>
+                        <Tips />     
+                </Grid.Column>
                     </Grid>
                 </Grid.Column>
-                <Grid.Column computer={4} tablet={4} only='computer'>
-                    <Header content='Tips on Posting' subheader='reach out with great contents' icon='info' />
-                    <List divided>
-                        <List.Item content='Some Side One' icon='check'/>
-                        <List.Item content='Some Side One' icon='check'/>
-                        <List.Item content='Some Side One' icon='check'/>
-                        <List.Item content='Some Side One' icon='check'/>
-                        <List.Item content='Some Side One' icon='check'/>
-                        <List.Item content='Some Side One' icon='check'/>
-                    </List>
-                </Grid.Column>
+                
             </Grid>
             </>}
             </>

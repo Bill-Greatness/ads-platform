@@ -1,6 +1,7 @@
 const graphql = require('graphql')
 const {GraphQLObjectType, GraphQLNonNull, GraphQLBoolean,GraphQLInt, GraphQLString, GraphQLID, GraphQLList, GraphQLSchema} = graphql
-const mongoose = require('mongoose');
+
+const client  = require('../models/client')
 
  const typeUser = new GraphQLObjectType({
   name:'User',
@@ -50,7 +51,7 @@ const mongoose = require('mongoose');
         item_price:{type:GraphQLString},
         number_in_stock: {type:GraphQLInt},
         gender_target:{type:GraphQLString},
-      available_colors:{type: GraphQLString},
+        available_colors:{type: GraphQLString},
         size_range:{type:GraphQLString},
         item_category:{type:GraphQLString},
         description:{type:GraphQLString},
@@ -156,26 +157,26 @@ const mongoose = require('mongoose');
      type: typeUser,
        args:{id:{type: GraphQLID}},
        resolve:(source, {id}) => {
-      return 'Some Random User Details Here'
+      return client.findOne({id:id})
      }
     },
     login:{
       type: typeUser,
       args:{email:{type: GraphQLString}, password:{type: GraphQLString}},
       resolve:(parent, args) => {
-       return "We will login in Here"
+       return client.findOne({email:email, password:password})
+      }
+    },
+    all_properties:{  
+      type:GraphQLList(typeProperty),
+      resolve:(parent, args) => {
+          return 'A List Properties'
       }
     },
     devices:{
       type:GraphQLList(typeDevice),
       resolve:() => {
        return 'A List Of Devices Here'
-      }
-    },
-    get_phones:{
-      type: GraphQLList(typeDevice),
-      resolve:() => {
-        return 'Get All Phones Queries'
       }
     },
     device:{
@@ -185,7 +186,7 @@ const mongoose = require('mongoose');
       return id
      }
     },
-    fashion_data:{
+    all_fashion:{
      type:GraphQLList(typeFashion),
      resolve:() => {
       return 'A list of all Fashion Data'
@@ -198,7 +199,7 @@ const mongoose = require('mongoose');
       return 'A Single Fashion Object'
      }
     },
-    services:{
+    all_services:{
      type:GraphQLList(typeService),
      resolve:() => {
       return 'A list of Services Here'
@@ -213,7 +214,7 @@ const mongoose = require('mongoose');
      }
     },
     
-    allpets:{
+    all_pets:{
      type: GraphQLList(typeAnimal),
      resolve:() => {
       return 'A list of Animals'

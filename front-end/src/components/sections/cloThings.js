@@ -1,6 +1,8 @@
 import React from 'react'
 import {Grid, Card, Image, Label, Divider} from 'semantic-ui-react'
 import dress from '../../media/clothing.png'
+import {graphql} from 'react-apollo'
+import {allFashion} from '../../queries/queries'
 import PandL from '../_components/priceAndLocation'
 import {Link} from 'react-router-dom'
 import Title from '../_components/TopHead'
@@ -87,4 +89,4 @@ class Clothings extends React.Component {
   }
 }
 
-export default Clothings;
+export default graphql(allFashion, {name:'allFashion'})(Clothings);

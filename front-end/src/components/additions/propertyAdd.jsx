@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Tips from '../_components/tiPs'
 import {addNewProperty} from '../../queries/queries'
 import {graphql} from 'react-apollo'
 import Title from '../_components/TopHead'
@@ -119,6 +120,10 @@ class   AddProperty extends React.Component{
                                 
                             </Form>
                         </Grid.Column>
+                    
+                    <Grid.Column computer={4} tablet={4} only='computer'>
+                        <Tips />
+                    </Grid.Column>
                     </Grid>
                 </Grid.Column>
             </Grid>

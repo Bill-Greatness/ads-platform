@@ -7,7 +7,7 @@ import UserProfile from './profiles/userProfile'
 
 import WelcomePage from './sections/homePage'
 import ElectronicDevices from './sections/electronicDevices'
-import AutoMobiles from './sections/proPerties'
+import Properties from './sections/proPerties'
 import Clothings from './sections/cloThings'
 import Pets from './sections/pEts'
 import Services from './sections/serVices'
@@ -33,7 +33,7 @@ export {
   LoGin,
   UserProfile,
   ElectronicDevices,
-  AutoMobiles,
+  Properties,
   Clothings,
   Pets,
   Services,

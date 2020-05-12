@@ -1,5 +1,7 @@
 import React from 'react'
 import {Grid, Reveal, Image, Container, Card} from 'semantic-ui-react'
+import {graphql} from 'react-apollo'
+import {allBooks} from '../../queries/queries'
 import Title from '../_components/TopHead'
 import placeholder from '../../media/book-placeholder.jpeg'
 import {TopNavigation} from '../'
@@ -56,4 +58,4 @@ class Books extends React.Component {
   }
 }
 
-export default Books;
+export default graphql(allBooks, {name:'allBooks'})(Books);

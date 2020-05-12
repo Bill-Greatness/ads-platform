@@ -3,7 +3,7 @@ import electronics from '../../media/phones-and-computers.png'
 import {Link} from 'react-router-dom'
 import {Grid, Card,  Label, Image, Icon, Divider} from 'semantic-ui-react'
 import {graphql} from 'react-apollo'
-import {getAllPhones} from '../../queries/queries'
+import {getAllDevices} from '../../queries/queries'
 import Title from '../_components/TopHead'
 import PandL from '../_components/priceAndLocation'
 import {TopNavigation} from '../'
@@ -18,7 +18,7 @@ class ElectronicDevices extends React.Component {
 
   render () {
   
-      const {data, loading} = this.props.getAllPhones
+      const {data, loading} = this.props.getAllDevices
       console.log(data, loading)
 
       return(
@@ -111,4 +111,4 @@ class ElectronicDevices extends React.Component {
   }
 }
 
-export default graphql(getAllPhones, {name:'getAllPhones'})(ElectronicDevices);
+export default graphql(getAllDevices, {name:'getAllDevices'})(ElectronicDevices);

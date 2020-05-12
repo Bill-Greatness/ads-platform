@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {graphql} from 'react-apollo'
+import Tips from '../_components/tiPs'
 import {addNewBook} from '../../queries/queries'
 import {Grid, Form, Button} from 'semantic-ui-react'
 import Title from '../_components/TopHead'
@@ -112,6 +113,9 @@ postBook = event => {
                           <Button type='submit' circular> Advertise</Button>
                          
                     </Form>
+                    </Grid.Column>
+                    <Grid.Column computer={4} tablet={4} only='computer and tablet'>
+                        <Tips />
                     </Grid.Column>
             </Grid>
             </Grid.Column>

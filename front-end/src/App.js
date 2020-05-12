@@ -2,7 +2,7 @@ import React from 'react';
 import {Grid} from 'semantic-ui-react'
 
 import {BrowserRouter as Router ,Switch,  Route } from 'react-router-dom'
-import {AutoMobiles,Services,
+import {Properties,Services,
    Footer, WelcomePage, SignUp,AddPost,
     LoGin,ElectronicDevices, Clothings,
     Pets, Books, AddDevice, AddProperty,
@@ -39,7 +39,7 @@ class App extends React.Component {
                   <Route path='/user-profile' component={UserProfile} />
                   
                   <Route path='/categories/electronic-gadgets' component={ElectronicDevices} />
-                  <Route path='/categories/auto-mobiles' component={AutoMobiles} />
+                  <Route path='/categories/auto-mobiles' component={Properties} />
                   <Route path='/categories/fashion-and-beauty' component={Clothings} />
                   <Route path='/categories/animals-and-pets' component={Pets} />
                   <Route path='/categories/services' component={Services} />

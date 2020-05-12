@@ -79,9 +79,9 @@ const addNewVacancy = gql`
 
 /*************************   Read Queries      ************************/
 
-const getAllPhones = gql`
+const getAllDevices = gql`
 {
-  get_phones{
+  devices{
     device_name,
     price,
     ram_size,
@@ -97,6 +97,83 @@ const getAllPhones = gql`
 }
 `
 
+const allFashion = gql`
+{
+  all_fashion{
+    item_name,
+    item_price,
+    item_tag,
+    posted_by{
+      firstname,
+      surname,
+      id
+    }
+  }
+}
+`
+
+const allServices = gql`
+{
+  all_services{
+    service_name,
+    service_location,
+    service_description,
+    posted_by{
+      firstname, 
+      surname,
+      id
+    }
+  }
+}
+`
+const allBooks = gql`
+{
+  all_books{
+    book_genre,
+    name_of_author,
+    date_published,
+    posted_by{
+      firstname,
+      surname,
+      id
+    }
+  }
+}
+`
+const allProperties = gql`
+{
+  all_properties{
+    property_name,
+    property_location,
+    property_description,
+    property_price,
+    posted_by{
+      firstname,
+      surname,
+      id
+    }
+  }
+}
+`
+const allPets = gql`
+{
+  all_pets{
+    animal_name,
+    number_available,
+    price,
+    description
+    posted_by{
+      firstname,
+      surname,
+      id
+    }
+    
+  }
+}
+`
+
 export {addNewUser, addNewBook, addNewDevice,
    addNewFashion, addNewPet, addNewProperty,
-    addNewService,addNewVacancy, getAllPhones}
+   allFashion,allServices,allBooks,
+   allProperties,allPets,
+    addNewService,addNewVacancy, getAllDevices}

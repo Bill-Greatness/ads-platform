@@ -15,7 +15,7 @@ class   PreviewPet extends React.Component{
         
         return(
             <>
-            {this.props.location.state === undefined ?
+            {this.props.location.state === undefined || this.props.location.state.is_authenticated === false ?
             this.props.history.push({pathname:'/categories/pets-and-animals', state:{is_authenticated:false}}) :
             <>
             <TopNavigation is_authenticated={this.props.location.state.is_authenticated} />

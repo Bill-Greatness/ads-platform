@@ -7,60 +7,61 @@ class SideBar extends React.Component{
     render(){
         
         return(
-            <Sidebar as={Menu} vertical animation='overlay' width='thin' visible={this.props.visible} >
+            <Sidebar as={Menu} vertical
+             
+             animation='overlay' width='thin' visible={this.props.visible} >
                 
                 <Menu.Item name='Logicians' as='h4'/>
                 <Divider horizontal   /> 
-                <Menu.Item name='Search Here' icon='search' />
-                <Dropdown item text='Categories' icon='globe' simple>
-                    <Dropdown.Menu>
+                    
                      <Link to={{pathname:'/categories/electronic-gadgets', state:{is_authenticated: this.props.is_authenticated}}}>
 
-                      <Dropdown.Item>Electronic Devices</Dropdown.Item>
+                      <Menu.Item icon='computer' name='Devices'/>
                       </Link>
                       
                       <Link to={{pathname:'/categories/auto-mobiles', state:{is_authenticated: this.props.is_authenticated}}}>
 
-                      <Dropdown.Item>Properties</Dropdown.Item>
+                      <Menu.Item name='Property' icon='home'/>
                       </Link>
                       <Link to={{pathname:'/categories/fashion-and-beauty', state:{is_authenticated: this.props.is_authenticated}}}>
 
-                      <Dropdown.Item >Fashion and Beauty</Dropdown.Item>
+                      <Menu.Item icon='gem' name='Fashion'/>
                       </Link>
                       
                          <Link to={{pathname:'/categories/animals-and-pets', state:{is_authenticated: this.props.is_authenticated}}}>
 
-                      <Dropdown.Item >Pet and Animals</Dropdown.Item>
+                      <Menu.Item name='Pets' icon='asl'/>
                       </Link>
                         
                         <Link to={{pathname:'/categories/services', state:{is_authenticated: this.props.is_authenticated}}}>
 
-                      <Dropdown.Item>Services</Dropdown.Item>
+                      <Menu.Item name='services' icon='globe'/>
                       </Link>
                       
                       <Link to={{pathname:'/categories/books-and-journals', state:{is_authenticated: this.props.is_authenticated}}}>
 
-                      <Dropdown.Item>Books and Journals</Dropdown.Item>
+                      <Menu.Item name='Books' icon='book'/>
                       </Link>
                       
                        <Link to={{pathname:'/categories/event-and-trends', state:{is_authenticated: this.props.is_authenticated}}}>
 
-                      <Dropdown.Item >Events and Trends</Dropdown.Item>
+                      <Menu.Item name='events' icon='calendar'/>
                       </Link>
                       
                       <Link to={{pathname:'/categories/job-vacancies', state:{is_authenticated: this.props.is_authenticated}}}>
 
-                      <Dropdown.Item >Job Alerts</Dropdown.Item>
+                      <Menu.Item name='Vacancies' icon='travel'/>
                       </Link>
-                    </Dropdown.Menu>
-                  </Dropdown>
+                   
+                
                 {this.props.is_authenticated ? <>
-                 <Link to={{pathname:'/user-profile', state:{is_authenticated:this.props.is_authenticated}}}>
-                    <Menu.Item name='profile' icon='user' />
-                </Link>
+               
                     <Link to={{pathname:'/add-to-market', state:{is_authenticated:this.props.is_authenticated}}}>
                         <Menu.Item name='add Product' icon='add' />
                     </Link>
+                    <Link to={{pathname:'/user-profile', state:{is_authenticated:this.props.is_authenticated}}}>
+                     <Menu.Item name='profile' icon='user' />
+                     </Link>
                     <Link to={{pathname:'/', state:{is_authenticated:false}}}>
                         <Menu.Item name='Logout' icon='sign out' />
                     </Link>
