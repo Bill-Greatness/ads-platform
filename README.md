@@ -1,4 +1,9 @@
-This is a simple adverting platform in progress... I will make it public when I'm done.
-#Lets work Hard Success will be there soon!
+This is an in-progress advertising platform in progress. 
 
-for more information [ open ]: https://bill-greatness.github.io 
+Currently 8 sections are available, 
+
+Held by graphql and mongoose in the backend, 
+
+edit and give post feed back to the github repo.
+
+#Bill
