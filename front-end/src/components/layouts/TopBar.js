@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import logo from '../../media/logicians.jpg'
 import SideBar from './sideBar'
-import {Menu, Dropdown, Search, TransitionablePortal, Image} from 'semantic-ui-react'
+import {Menu, Dropdown, Search, TransitionablePortal, Image, Segment, Container} from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 
 class TopNavigation extends React.Component {
@@ -31,9 +31,10 @@ class TopNavigation extends React.Component {
 
               <Menu.Menu position='right' className='hide-on-mobile'>
                <Menu.Item icon='search' onClick={(e) => this.setState({open_search:!this.state.open_search})}/> 
-                <TransitionablePortal open={this.state.open_search} animation={{transition:'fly left', duration:500}} >
-                  <div style={{zIndex:1000, position:'absolute', top:40, right:0}}>
+                <TransitionablePortal open={this.state.open_search} animation={{transition:'fly down', duration:500}} >
+                  <Segment style={{zIndex:1000, position:'absolute', top:25, right:0}}>
                       <Search
+                      fluid
                       size='small'
                     loading={isLoading}
                     results={results}
@@ -45,7 +46,9 @@ class TopNavigation extends React.Component {
                     value={value}
                     {...this.props}
                   />
-                  </div>
+                  <Container style={{width:400}}>
+                  </Container>
+                  </Segment>
                 </TransitionablePortal>
 
                   

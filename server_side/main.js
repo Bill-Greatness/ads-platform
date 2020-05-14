@@ -1,12 +1,15 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const dotenv = require('dotenv')
 const graphqlHTTP = require('express-graphql')
 const cors = require('cors')
 
 const  mongoose = require('mongoose')
 
 const schema = require('./schema/schema')
+
 const app = express()
+dotenv.config()
 
 /* This will be moved to the env file when uploading to git hub or commit changes */
  mongoose.connect('mongodb+srv://logicians:Gre@nes$_1@LoGi)@logicians-ghana-qdtql.mongodb.net/test?retryWrites=true&w=majority', {
